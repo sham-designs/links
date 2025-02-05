@@ -3,34 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amazon Exploration Map</title>
+    <title>Echoes of the Amazon</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <!-- Background Map -->
-        <div class="map">
-            <!-- Clickable Exploration Zones -->
-            <div class="zone biodiversity">Biodiversity</div>
-            <div class="zone deforestation">Deforestation</div>
-            <div class="zone indigenous">Indigenous Culture</div>
-            <div class="zone river">Amazon River</div>
-        </div>
 
-        <!-- Information Panel -->
-        <div class="info-panel">
-            <h2>Explore the Amazon</h2>
-            <p>Click on different areas to learn more.</p>
-        </div>
-
-        <!-- Audio (For Now, Just Embedded) -->
-        <div class="audio-container">
-            <p>Listen to the sounds of the rainforest:</p>
-            <audio controls>
-                <source src="rainforest-sounds.mp3" type="audio/mpeg">
-
-            </audio>
-        </div>
+    <!-- Background Video -->
+    <div class="background-video">
+        <img src="assets/bioluminescent-mushrooms-gif.gif" alt="Bioluminescent Mushrooms">
     </div>
+    
+
+    <!-- Title -->
+    <div class="title-container">
+        <h1 class="title">Know Your Forest</h1>
+        <p class="subtitle">THE GOOD AND THE BAD</p>
+        <img src="assets/arrow-header.svg" alt="Arrow" class="arrow">
+    </div>
+
+    <!-- Interactive Dots for Images/PDF -->
+    <div class="interactive-dots">
+        <div class="dot" id="dot1" data-content="assets/crown-shyness.jpg"></div>
+        <div class="dot" id="dot2" data-content="assets/green-anaconda.jpg"></div>
+        <div class="dot" id="dot3" data-content="assets/rainforest-burning.jpg"></div>
+        <div class="dot" id="dot4" data-content="assets/illegal-mining-in-the-amazon.pdf"></div>
+    </div>
+
+    <!-- Audio Button -->
+    <button class="audio-button" onclick="toggleAudio()">▶</button>
+    <audio id="forest-audio" loop>
+        <source src="assets/sound-of-forest.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        function toggleAudio() {
+            let audio = document.getElementById("forest-audio");
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
+            }
+        }
+    </script>
+
 </body>
 </html>

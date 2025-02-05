@@ -1,0 +1,77 @@
+/* Reset Styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: white;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fullscreen Container */
+.container {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    background: radial-gradient(circle, #0b3d02 10%, #072b00 50%, #041a00 90%);
+}
+
+/* Map Background */
+.map {
+    width: 100%;
+    height: 100%;
+    background: url('./assets/crown-shyness.jpg') no-repeat center center/cover;
+
+    position: relative;
+}
+
+.zone {
+    position: absolute;
+    padding: 15px 20px;
+    font-weight: 600;
+    font-size: 16px;
+    background: rgba(0, 255, 127, 0.2);
+    border: 1px solid rgba(0, 255, 127, 0.5);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+}
+
+.zone:hover {
+    transform: scale(1.1);
+    background: rgba(0, 255, 127, 0.4);
+}
+
+/* Positioning the Zones (Adjust these based on your map) */
+.biodiversity { top: 20%; left: 30%; }
+.deforestation { top: 50%; left: 60%; }
+.indigenous { top: 70%; left: 40%; }
+.river { top: 30%; left: 70%; }
+
+/* Info Panel */
+.info-panel {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* Audio Container */
+.audio-container {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: white;
+}
+
+

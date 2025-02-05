@@ -13,7 +13,6 @@
         <img src="assets/bioluminescent-mushrooms-gif.gif" alt="Bioluminescent Mushrooms">
     </div>
     
-
     <!-- Title -->
     <div class="title-container">
         <h1 class="title">Know Your Forest</h1>
@@ -21,12 +20,20 @@
         <img src="assets/arrow-header.svg" alt="Arrow" class="arrow">
     </div>
 
-    <!-- Interactive Dots for Images/PDF -->
+    <!-- Interactive Dots (Now Clickable) -->
     <div class="interactive-dots">
-        <div class="dot" id="dot1" data-content="assets/crown-shyness.jpg"></div>
-        <div class="dot" id="dot2" data-content="assets/green-anaconda.jpg"></div>
-        <div class="dot" id="dot3" data-content="assets/rainforest-burning.jpg"></div>
-        <div class="dot" id="dot4" data-content="assets/illegal-mining-in-the-amazon.pdf"></div>
+        <div class="dot" id="dot1" onclick="toggleDot(this)">
+            <img class="dot-content" src="assets/crown-shyness.jpg" alt="Crown Shyness">
+        </div>
+        <div class="dot" id="dot2" onclick="toggleDot(this)">
+            <img class="dot-content" src="assets/green-anaconda.jpg" alt="Green Anaconda">
+        </div>
+        <div class="dot" id="dot3" onclick="toggleDot(this)">
+            <img class="dot-content" src="assets/rainforest-burning.jpg" alt="Rainforest Burning">
+        </div>
+        <div class="dot" id="dot4" onclick="toggleDot(this)">
+            <a class="dot-content pdf-link" href="assets/illegal-mining-in-the-amazon.pdf" target="_blank">View PDF</a>
+        </div>
     </div>
 
     <!-- Audio Button -->
@@ -44,6 +51,23 @@
                 audio.pause();
             }
         }
+
+        function toggleDot(dot) {
+            // Collapse any expanded dots before opening a new one
+            document.querySelectorAll('.dot').forEach(d => {
+                if (d !== dot) d.classList.remove('expanded');
+            });
+
+            // Toggle current dot
+            dot.classList.toggle('expanded');
+        }
+
+        // Close expanded dots when clicking anywhere outside
+        document.body.addEventListener('click', function (e) {
+            if (!e.target.classList.contains('dot')) {
+                document.querySelectorAll('.dot').forEach(dot => dot.classList.remove('expanded'));
+            }
+        }, true);
     </script>
 
 </body>

@@ -7,68 +7,46 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <header>
+        <div class="header-left">TYPE AND INTERACTION 2</div>
+        <div class="header-center">BY SHAMBHAVI VARMA</div>
+        <div class="header-right"><a href="#">ARENA LINK</a></div>
+    </header>
 
-    <!-- Background Video -->
-    <div class="background-video">
-        <img src="assets/bioluminescent-mushrooms-gif.gif" alt="Bioluminescent Mushrooms">
+    <section id="hero">
+        <div class="oval-container">
+            <h1>Know Your Rainforest</h1>
+            <p>An invitation to explore the depths of the rainforest and its impact.</p>
+            <button id="play-audio">▶</button>
+        </div>
+    </section>
+
+
+
+<!-- Section 1: Full-Screen Entry -->
+<section id="entry">
+    <div class="entry-container">
+        <h2>Enter the Amazon Rainforest</h2>
+        <p>Immerse yourself in the depths of the jungle.</p>
+        <button class="cta-button">EXPLORE</button>
     </div>
-    
-    <!-- Title -->
-    <div class="title-container">
-        <h1 class="title">Know Your Forest</h1>
-        <p class="subtitle">THE GOOD AND THE BAD</p>
-        <img src="assets/arrow-header.svg" alt="Arrow" class="arrow">
-    </div>
+</section>
 
-    <!-- Interactive Dots (Now Clickable) -->
-    <div class="interactive-dots">
-        <div class="dot" id="dot1" onclick="toggleDot(this)">
-            <img class="dot-content" src="assets/crown-shyness.jpg" alt="Crown Shyness">
+<!-- Section 2: Title + Wiggle Arrow + Image -->
+<section id="overview">
+    <div class="overview-container">
+        <div class="text-block">
+            <h3>Discover the Secrets of the Rainforest</h3>
+            <img src="wiggle-arrow.svg" alt="Arrow" class="wiggle-arrow">
         </div>
-        <div class="dot" id="dot2" onclick="toggleDot(this)">
-            <img class="dot-content" src="assets/green-anaconda.jpg" alt="Green Anaconda">
-        </div>
-        <div class="dot" id="dot3" onclick="toggleDot(this)">
-            <img class="dot-content" src="assets/rainforest-burning.jpg" alt="Rainforest Burning">
-        </div>
-        <div class="dot" id="dot4" onclick="toggleDot(this)">
-            <a class="dot-content pdf-link" href="assets/illegal-mining-in-the-amazon.pdf" target="_blank">View PDF</a>
+        <div class="image-block">
+            <div class="image-placeholder"></div>
         </div>
     </div>
+</section>
 
-    <!-- Audio Button -->
-    <button class="audio-button" onclick="toggleAudio()">▶</button>
-    <audio id="forest-audio" loop>
-        <source src="assets/sound-of-forest.mp3" type="audio/mpeg">
-    </audio>
 
-    <script>
-        function toggleAudio() {
-            let audio = document.getElementById("forest-audio");
-            if (audio.paused) {
-                audio.play();
-            } else {
-                audio.pause();
-            }
-        }
-
-        function toggleDot(dot) {
-            // Collapse any expanded dots before opening a new one
-            document.querySelectorAll('.dot').forEach(d => {
-                if (d !== dot) d.classList.remove('expanded');
-            });
-
-            // Toggle current dot
-            dot.classList.toggle('expanded');
-        }
-
-        // Close expanded dots when clicking anywhere outside
-        document.body.addEventListener('click', function (e) {
-            if (!e.target.classList.contains('dot')) {
-                document.querySelectorAll('.dot').forEach(dot => dot.classList.remove('expanded'));
-            }
-        }, true);
-    </script>
 
 </body>
-</html>
+    </html>
+    

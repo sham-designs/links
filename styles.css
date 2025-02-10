@@ -1,150 +1,176 @@
-/* General Reset */
-* {
+/* Import Fonts */
+/* @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@100;300&family=Inter:wght@300;500;700&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap');
+
+/* General Styles */
+body {
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Playfair Display', serif;
-}
-
-/* Background Video (or GIF) */
-.background-video {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: -1;
-}
-
-.background-video video,
-.background-video img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Title Container */
-.title-container {
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    transform: translateX(-50%);
+    font-family: 'Instrument Serif', serif;
+    /* background: white; */
+    background-color: black;
+    /* color: black; */
+    color: white;
     text-align: center;
 }
 
-/* Main Title */
-.title {
-    font-family: 'Playfair Display', serif;
-    font-size: 7rem;
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+    border-bottom: 1px solid white;
+}
+
+.header-left, .header-center, .header-right {
+    flex: 1;
+}
+
+.header-center {
+    text-align: center;
+}
+
+.header-right {
+    text-align: right;
+}
+
+/* Hero Section */
+#hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    position: relative;
+}
+
+/* Oval Shape */
+.oval-container {
+    width: 100%;
+    max-width:1100px;
+    padding:45px 50px; 
+    border-radius: 80% / 95%; 
+    background: url('https://source.unsplash.com/1000x600/?amazon,forest') center/cover no-repeat;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1.5px solid white; /* Thin stroke */
+}
+
+/* Title */
+h1 {
+    font-size: 6.5rem;
+    /* font-weight: 100; */
     font-weight: lighter;
-    letter-spacing: -5px;
-    color: white;
+    /* text-transform: uppercase; */
+    letter-spacing: -1.5px;
+    margin-bottom: 10px;
+    line-height: 1.05;
 }
 
 /* Subtitle */
-.subtitle {
-    font-family: 'Inter', sans-serif;
-    font-size: 1.2rem;
-    font-weight: 400;
+p {
+    font-size: 1rem;
+    font-style: italic;
+}
+
+/* Play Button */
+#play-audio {
+    margin-top: 20px;
+    padding: 18px;
+    font-size: 1.8rem;
+    border: none;
+    background: black;
     color: white;
-    margin-top: 5px;
-}
-
-/* Arrow */
-.arrow {
-    display: block;
-    width: 50px;
-    height: auto;
-    margin: 10px auto;
-}
-
-/* Interactive Dots */
-.interactive-dots {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-}
-
-/* Dot Styling */
-.dot {
-    position: absolute;
-    width: 15px;
-    height: 15px;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 50%;
     cursor: pointer;
-    box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.5);
-    transition: transform 0.3s ease, background-color 0.3s ease, width 0.3s ease, height 0.3s ease;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+}
+
+#play-audio:hover {
+    background: darkgray;
+}
+
+
+
+
+/* 🌿 Section 1: Full-Screen Entry */
+#entry {
+    background: black;
+    color: white;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
-}
-
-/* Glow effect on hover */
-.dot:hover {
-    transform: scale(1.3);
-}
-
-/* Positioning for dots */
-#dot1 { top: 30%; left: 40%; }
-#dot2 { top: 50%; left: 60%; }
-#dot3 { top: 70%; left: 30%; }
-#dot4 { top: 80%; left: 50%; }
-
-/* Expanded Dot */
-.dot.expanded {
-    width: 200px;
-    height: 200px;
-    border-radius: 15px;
-    background-color: rgba(0, 0, 0, 0.7);
-    transform: scale(1);
-    transition: all 0.3s ease-in-out;
-}
-
-/* Show content inside expanded dot */
-.dot-content {
-    width: 100%;
-    height: auto;
-    display: none;
-    border-radius: 5px;
-}
-
-.pdf-link {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
+    flex-direction: column;
     text-align: center;
 }
 
-/* Display content when dot is expanded */
-.dot.expanded .dot-content {
-    display: block;
-    max-width: 90%;
-    max-height: 90%;
+.entry-container h2 {
+    font-size: 3rem;
+    font-weight: 300;
 }
 
-/* Audio Button */
-.audio-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 50px;
-    height: 50px;
-    background-color: rgba(255, 255, 255, 0.2);
-    border: none;
-    border-radius: 50%;
-    font-size: 1.5rem;
-    color: white;
+.entry-container p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.cta-button {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    background: white;
+    color: black;
+    border: 2px solid white;
     cursor: pointer;
-    transition: background 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    transition: 0.3s;
 }
 
-/* Hover effect for audio button */
-.audio-button:hover {
-    background-color: rgba(255, 255, 255, 0.5);
+.cta-button:hover {
+    background: black;
+    color: white;
+}
+
+/* 🌿 Section 2: Title + Wiggle Arrow + Image */
+#overview {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+}
+
+.text-block {
+    max-width: 50%;
+}
+
+.text-block h3 {
+    font-size: 2rem;
+    font-weight: 300;
+}
+
+.wiggle-arrow {
+    width: 80px;
+    margin-top: 10px;
+}
+
+.image-block {
+    max-width: 40%;
+}
+
+.image-placeholder {
+    width: 100%;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid white;
 }

@@ -1,3 +1,4 @@
+
 /* Import Fonts */
 /* @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@100;300&family=Inter:wght@300;500;700&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap');
@@ -7,10 +8,16 @@ body {
     margin: 0;
     font-family: 'Instrument Serif', serif;
     /* background: white; */
-    background-color: black;
+    background-color: #252B15;
     /* color: black; */
     color: white;
     text-align: center;
+    /* Apply Noise Texture */
+    background-image: url('assets/noise-texture.png'); 
+    background-size: cover;  /* Make sure it covers the full page */
+    background-repeat: repeat; /* Ensures the texture tiles if needed */
+    background-blend-mode: overlay; /* Blends with the green */
+    opacity: 0.9; /* Adjust opacity for subtle effect */
 }
 
 /* Header */
@@ -48,20 +55,6 @@ header {
     position: relative;
 }
 
-/* Oval Shape */
-.oval-container {
-    width: 100%;
-    max-width:1100px;
-    padding:45px 50px; 
-    border-radius: 80% / 95%; 
-    background: url('https://source.unsplash.com/1000x600/?amazon,forest') center/cover no-repeat;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border: 1.5px solid white; /* Thin stroke */
-}
 
 /* Title */
 h1 {
@@ -86,7 +79,7 @@ p {
     padding: 18px;
     font-size: 1.8rem;
     border: none;
-    background: black;
+    background: #252B15;
     color: white;
     cursor: pointer;
     border-radius: 50%;
@@ -105,7 +98,7 @@ p {
 
 
 
-/* 🌿 Section 1: Full-Screen Entry */
+/*  Section 1: Full-Screen Entry */
 #entry {
     background: black;
     color: white;
@@ -174,3 +167,36 @@ p {
     background: rgba(255, 255, 255, 0.2);
     border: 1px solid white;
 }
+
+
+
+
+.oval-container {
+    position: relative;
+    width: 100%;
+    max-width: 1100px;
+    height: 500px; /* Set height */
+    border-radius: 80% / 95%;
+    border: 1.5px solid white;
+    overflow: hidden; /* Ensures GIF stays inside */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.oval-gif {
+    position: absolute;
+    width: 120%;  /* Make it slightly larger to avoid empty spaces */
+    height: 120%; /* Stretch it slightly */
+    object-fit: cover; /* Ensures GIF fills the space */
+    clip-path: ellipse(50% 48% at center); /* Crops it to oval shape */
+    z-index: -1; /* Moves it behind text */
+}
+
+
+.oval-content {
+    position: relative;
+    z-index: 2; /* Higher than GIF */
+    text-align: center;
+}
+

@@ -7,7 +7,7 @@
 body {
     margin: 0;
     font-family: 'Instrument Serif', serif;
-    /* background: white; */
+    /* background: black; */
     background-color: #252B15;
     /* color: black; */
     color: white;
@@ -58,7 +58,7 @@ header {
 
 /* Title */
 h1 {
-    font-size: 6.5rem;
+    font-size: 8rem;
     /* font-weight: 100; */
     font-weight: lighter;
     /* text-transform: uppercase; */
@@ -85,7 +85,7 @@ p {
     border-radius: 50%;
     width: 50px;
     height: 50px;
-    display: flex;
+    /* display: flex; */
     justify-content: center;
     align-items: center;
     font-family: sans-serif;
@@ -200,3 +200,85 @@ p {
     text-align: center;
 }
 
+
+
+
+
+
+/* 🌿 PAST SECTION */
+#past {
+    background: radial-gradient(circle, #4CAF50 0%, #1e4d2b 40%, #0a1b0a 100%);
+    color: white;
+    text-align: center;
+    padding: 200px 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#past h2 {
+    font-size: 8rem;
+    font-family: 'Instrument Serif', serif;
+    font-weight: 100;
+    margin: 0;
+    letter-spacing: -8px;
+}
+
+#past p {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    margin-top: 0;
+}
+
+/* 🌿 PRESENT SECTION */
+#present {
+    background: radial-gradient(circle, #d7995b 0%, #7a4f27 40%, #1e0e06 100%);
+    color: white;
+    text-align: center;
+    padding: 200px 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#present h2 {
+    font-size: 8rem;
+    font-family: 'Instrument Serif', serif;
+    font-weight: 100;
+    margin: 0;
+    letter-spacing: -8px;
+}
+
+#present p {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+}
+
+/* CTA Button */
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 2px solid 1e4d2b;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.cta-button:hover {
+    background: white;
+    color: black;
+}
+
+.sections-container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}

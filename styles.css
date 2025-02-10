@@ -206,11 +206,12 @@ p {
 
 
 /* 🌿 PAST SECTION */
+
 #past {
     background: radial-gradient(circle, #4CAF50 0%, #1e4d2b 40%, #0a1b0a 100%);
     color: white;
     text-align: center;
-    padding: 200px 0;
+    /* padding: 200px 0; */
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -264,7 +265,9 @@ p {
 .cta-button {
     display: inline-block;
     padding: 15px 30px;
-    font-size: 1.5rem;
+    font-size: 14px;
+    letter-spacing: -0.5px;
+    text-transform: uppercase;
     background: rgba(255, 255, 255, 0.2);
     color: white;
     border: 2px solid 1e4d2b;
@@ -281,4 +284,140 @@ p {
     display: flex;
     width: 100vw;
     height: 100vh;
+}
+
+
+
+/* Ensure sections are relative so the noise overlay positions correctly */
+#past, #present {
+    position: relative;
+}
+
+/* Adding Noise Texture Layer */
+#past::before,
+#present::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('assets/noise-texture.png');
+    background-size: cover;
+    opacity: 0.1; /* Adjust for subtle effect */
+    pointer-events: none; /* Prevents interference with clicks */
+    z-index: 1; /* Places it above the gradient */
+}
+
+
+
+
+
+
+
+/* Default: Only White Outline, No Fill */
+#past, #present {
+    flex: 1;
+    height: 100vh;
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    background: transparent; /* No fill */
+    clip-path: circle(80% at center);
+    transition: background 0.5s ease-in-out, border 0.5s ease-in-out, clip-path 0.5s ease-in-out;
+}
+
+/* Noise Overlay */
+#past::before, 
+#present::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('assets/noise-texture.png'), 
+                radial-gradient(circle, rgba(0,0,0,0) 50%, #252B15 100%);
+    background-size: cover;
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Hover: Show Radial Gradient */
+#past:hover {
+    background: radial-gradient(circle, rgba(76, 175, 80, 0.8) 10%, rgba(30, 77, 43, 0) 50%, rgba(10, 27, 10, 0) 100%);
+    border: none;
+    clip-path: circle(45% at center);
+}
+
+#present:hover {
+    background: radial-gradient(circle, rgba(215, 153, 91, 0.8) 10%, rgba(122, 79, 39, 0) 50%, rgba(30, 14, 6, 0) 100%);
+    border: none;
+    clip-path: circle(45% at center);
+}
+
+.sections-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    gap: 200px;
+    padding: 200px 0;
+    height: auto;
+}
+
+/* PAST & PRESENT SECTIONS - Vertically Stacked Ovals */
+.section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    width: 100%;
+    height: 70vh;
+}
+
+.oval {
+    position: absolute;
+    width: 80vw; 
+    height: 50vh; 
+    border-radius: 80% / 60%;
+    border: 2px solid white;
+    transition: background 0.4s ease-in-out, border 0.3s ease-in-out;
+}
+
+
+/* Default - Only Outline */
+.oval {
+    background: transparent;
+}
+
+#past .oval:hover {
+    background: radial-gradient(circle, rgba(76, 175, 80, 0.9) 20%, rgba(30, 77, 43, 0) 60%, rgba(10, 27, 10, 0) 100%) !important;
+    border: none;
+}
+
+
+#present .oval:hover {
+    background: radial-gradient(circle, #d7995b 0%, rgba(122, 79, 39, 0) 60%);
+    border: none;
+}
+
+/* Add Noise */
+.oval::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('assets/noise-texture.png');
+    background-size: cover;
+    opacity: 0.2;
+    pointer-events: none;
 }

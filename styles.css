@@ -422,3 +422,54 @@ p {
     opacity: 0.2;
     pointer-events: none;
 }
+
+
+
+
+
+
+
+
+
+/* Adding grid to the arena elements */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Auto-fit for responsive grid */
+    gap: 20px; /* Adds spacing between elements */
+    padding: 20px;
+    max-width: 90%;
+    margin: auto;
+}
+
+.grid li {
+    list-style: none;
+    background: rgba(255, 255, 255, 0.05); /* Subtle background */
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.grid img {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    max-width: 400px; /* Prevents images from being too large */
+    border-radius: 5px;
+}
+
+.grid video, .grid audio {
+    width: 100%;
+    max-width: 400px;
+}
+
+
+.grid iframe {
+    width: 100%;
+    max-width: 500px; /* Prevents it from getting too big */
+    height: auto;
+    aspect-ratio: 16 / 9; /* Ensures proper scaling */
+    border-radius: 5px; /* Optional: smooth edges */
+}
+
+#channel-link {
+    display: none;
+}

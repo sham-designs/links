@@ -19,17 +19,25 @@ let placeChannelInfo = (data) => {
     let channelLink = document.querySelector('#channel-link');
 
     // Set title, but use "Unknown Channel" if empty
-    channelTitle.innerHTML = data.title || "Unknown Channel";
+    // channelTitle.innerHTML = data.title || "Unknown Channel";
 
     // Check if metadata exists before accessing description
-    let description = data.metadata && data.metadata.description ? data.metadata.description : "No description available.";
-    channelDescription.innerHTML = window.markdownit().render(description);
+    // let description = data.metadata && data.metadata.description ? data.metadata.description : "No description available.";
+    // channelDescription.innerHTML = window.markdownit().render(description);
 
     // Set block count
-    channelCount.innerHTML = data.length;
+    // channelCount.innerHTML = data.length;
 
     // Set channel link
-    channelLink.href = `https://www.are.na/channel/${channelSlug}`;
+    // channelLink.href = `https://www.are.na/channel/${channelSlug}`;
+
+
+ // If any element is empty, remove it from the DOM
+ if (channelTitle) channelTitle.remove();
+ if (channelDescription) channelDescription.remove();
+ if (channelCount) channelCount.remove();
+ if (channelLink) channelLink.remove();
+
 };
 
 

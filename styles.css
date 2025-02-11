@@ -444,8 +444,9 @@ p {
 .grid li {
     list-style: none;
     background: rgba(255, 255, 255, 0.05); /* Subtle background */
+    background: transparent;
     padding: 15px;
-    border-radius: 8px;
+    border-radius: 80px;
     text-align: center;
 }
 
@@ -470,6 +471,44 @@ p {
     border-radius: 5px; /* Optional: smooth edges */
 }
 
+
+.grid-item img, .grid-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures full-frame, no awkward stretching */
+  }
+
+  .grid-container {
+    display: grid;
+    gap: 12px; /* Adjust based on how much spacing you want */
+  }
+
+
+  /* .grid-item-label {
+    font-size: 12px;
+    opacity: 0.8; 
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  } */
+
+  .grid-item-label {
+    display: none 
+  }
+
+  .grid-item p, .grid-item span {
+    display: none 
+  }
+  
+
+
+  img, video, audio, iframe {
+    border-radius: 24px; 
+    overflow: hidden;
+  }
+  
+
+
 #channel-link {
     display: none;
 }
+

@@ -165,3 +165,18 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 		data.collaborators.forEach((collaborator) => renderUser(collaborator, channelUsers))
 		renderUser(data.user, channelUsers)
 	})
+
+
+
+
+	document.querySelectorAll("video").forEach((video) => {
+		video.setAttribute("autoplay", true);
+		video.setAttribute("loop", true);
+		video.setAttribute("muted", true);
+		video.setAttribute("playsinline", true);
+	  });
+
+
+	  document.querySelectorAll(".grid-item-label").forEach((el) => el.remove());
+
+	  

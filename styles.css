@@ -184,6 +184,9 @@ p {
     align-items: center;
 }
 
+
+
+
 .oval-gif {
     position: absolute;
     width: 120%;  /* Make it slightly larger to avoid empty spaces */
@@ -424,13 +427,6 @@ p {
 }
 
 
-
-
-
-
-
-
-
 /* Adding grid to the arena elements */
 .grid {
     display: grid;
@@ -512,3 +508,36 @@ p {
     display: none;
 }
 
+
+ 
+
+@media (max-width: 480px) {
+    .oval-container {
+        max-width: 100%;
+        height: 200px; 
+        border-radius: 100% / 100%; 
+    }
+
+
+    .oval-content h1 {
+        font-size: 3rem; 
+    }
+
+    .oval-content p {
+        font-size: 0.8rem; 
+    }
+
+
+
+    #past h2, #present h2 {
+        font-size: 3.5rem; 
+        letter-spacing: -2px; 
+        text-align: center; 
+    }
+
+    #past p, #present p {
+        font-size: 1rem; 
+    }
+
+
+}

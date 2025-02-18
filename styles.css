@@ -12,7 +12,7 @@ body {
     background-size: cover;
     background-repeat: repeat;
     background-blend-mode: overlay;
-    opacity: 0.9;
+    opacity: 1;
 }
 
 /* Header */
@@ -118,13 +118,52 @@ p {
     transition: width 0.5s ease-in-out;
 }
 
-#past {
+/* #past {
     background: radial-gradient(circle, #4CAF50 0%, #1e4d2b 40%, #0a1b0a 100%);
 }
 
 #present {
     background: radial-gradient(circle, #d7995b 0%, #7a4f27 40%, #1e0e06 100%);
+} */
+
+#past, #present {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    transition: filter 0.5s ease-in-out;
+    overflow: hidden;
 }
+
+/* Past Section */
+#past {
+    background: radial-gradient(circle at 50% 50%, rgba(72, 145, 75, 0.8) 20%, rgba(24, 61, 27, 0.6) 50%, rgba(10, 27, 10, 0.4) 80%, rgba(0, 0, 0, 0) 100%);
+    backdrop-filter: blur(10px);
+}
+
+/* Present Section */
+#present {
+    background: radial-gradient(circle at center, rgba(215, 153, 91, 0.8) 20%, rgba(122, 79, 39, 0.6) 50%, rgba(30, 14, 6, 0.4) 80%, rgba(0, 0, 0, 0) 100%);
+    backdrop-filter: blur(10px);
+} 
+
+.past-section, .present-section {
+    position: relative;
+    width: 50vw;
+    height: 100vh;
+    background: radial-gradient(circle, rgba(34, 139, 34, 0.8) 20%, rgba(34, 139, 34, 0) 80%);
+    filter: blur(10px);
+}
+.present-section {
+    background: radial-gradient(circle, rgba(139, 69, 19, 0.8) 20%, rgba(139, 69, 19, 0) 80%);
+}
+
+
+
+
+
 
 #past:hover, #present:hover {
     filter: brightness(1.2);

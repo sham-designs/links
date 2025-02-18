@@ -23,8 +23,6 @@ let placeChannelInfo = (data) => {
     if (channelLink) channelLink.remove();
 };
 
-
-
 // Function to filter and place blocks into the correct section
 let renderBlock = (block) => {
     let pastContainer = document.querySelector('#past');
@@ -62,14 +60,26 @@ let renderBlock = (block) => {
     }
 };
 
-// Function to toggle visibility
-let toggleContent = (view) => {
-    document.querySelector('#past').style.display = view === 'past' ? 'block' : 'none';
-    document.querySelector('#present').style.display = view === 'present' ? 'block' : 'none';
-};
+// Hover-based Desaturation Effect
+document.querySelector("#past").addEventListener("mouseenter", () => {
+    document.querySelector("#present").style.filter = "grayscale(100%)";
+    document.querySelector("#past").style.filter = "grayscale(0%)";
+});
 
-document.getElementById("show-past").addEventListener("click", () => toggleContent("past"));
-document.getElementById("show-present").addEventListener("click", () => toggleContent("present"));
+document.querySelector("#present").addEventListener("mouseenter", () => {
+    document.querySelector("#past").style.filter = "grayscale(100%)";
+    document.querySelector("#present").style.filter = "grayscale(0%)";
+});
+
+document.querySelector("#past").addEventListener("mouseleave", () => {
+    document.querySelector("#past").style.filter = "grayscale(0%)";
+    document.querySelector("#present").style.filter = "grayscale(0%)";
+});
+
+document.querySelector("#present").addEventListener("mouseleave", () => {
+    document.querySelector("#past").style.filter = "grayscale(0%)";
+    document.querySelector("#present").style.filter = "grayscale(0%)";
+});
 
 // Fetch the data from Are.na API
 fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-store' })

@@ -1,23 +1,18 @@
-
 /* Import Fonts */
-/* @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@100;300&family=Inter:wght@300;500;700&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap');
 
 /* General Styles */
 body {
     margin: 0;
     font-family: 'Instrument Serif', serif;
-    /* background: black; */
     background-color: #252B15;
-    /* color: black; */
     color: white;
     text-align: center;
-    /* Apply Noise Texture */
-    background-image: url('assets/noise-texture.png'); 
-    background-size: cover;  /* Make sure it covers the full page */
-    background-repeat: repeat; /* Ensures the texture tiles if needed */
-    background-blend-mode: overlay; /* Blends with the green */
-    opacity: 0.9; /* Adjust opacity for subtle effect */
+    background-image: url('assets/noise-texture.png');
+    background-size: cover;
+    background-repeat: repeat;
+    background-blend-mode: overlay;
+    opacity: 0.9;
 }
 
 /* Header */
@@ -53,491 +48,201 @@ header {
     height: 100vh;
     flex-direction: column;
     position: relative;
+    background: url('assets/bioluminescent-mushrooms-gif.gif') center/cover no-repeat;
 }
 
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+}
 
-/* Title */
 h1 {
-    font-size: 8rem;
-    /* font-weight: 100; */
+    font-size: 5rem;
     font-weight: lighter;
-    /* text-transform: uppercase; */
     letter-spacing: -1.5px;
     margin-bottom: 10px;
     line-height: 1.05;
+    position: relative;
 }
 
-/* Subtitle */
 p {
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-style: italic;
+    position: relative;
 }
 
-/* Play Button */
-#play-audio {
+/* Split Screen Layout */
+
+
+#filter-buttons {
+    text-align: center;
     margin-top: 20px;
-    padding: 18px;
-    font-size: 1.8rem;
+}
+
+#filter-buttons button {
+    padding: 10px 20px;
+    font-size: 1rem;
     border: none;
     background: #252B15;
     color: white;
     cursor: pointer;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    /* display: flex; */
-    justify-content: center;
-    align-items: center;
-    font-family: sans-serif;
+    margin: 5px;
+    border-radius: 5px;
 }
 
-#play-audio:hover {
+#filter-buttons button:hover {
     background: darkgray;
 }
 
 
 
 
-/*  Section 1: Full-Screen Entry */
-#entry {
-    background: black;
-    color: white;
+.split-container {
+    display: flex;
+    width: 100vw;
     height: 100vh;
+}
+
+#past, #present {
+    flex: 1;
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
-    text-align: center;
-}
-
-.entry-container h2 {
-    font-size: 3rem;
-    font-weight: 300;
-}
-
-.entry-container p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-}
-
-.cta-button {
-    padding: 10px 20px;
-    font-size: 1.2rem;
-    background: white;
-    color: black;
-    border: 2px solid white;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.cta-button:hover {
-    background: black;
-    color: white;
-}
-
-/* 🌿 Section 2: Title + Wiggle Arrow + Image */
-#overview {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 50px;
-}
-
-.text-block {
-    max-width: 50%;
-}
-
-.text-block h3 {
-    font-size: 2rem;
-    font-weight: 300;
-}
-
-.wiggle-arrow {
-    width: 80px;
-    margin-top: 10px;
-}
-
-.image-block {
-    max-width: 40%;
-}
-
-.image-placeholder {
-    width: 100%;
-    height: 300px;
-    background: rgba(255, 255, 255, 0.2);
-    border: 1px solid white;
-}
-
-
-
-
-.oval-container {
-    position: relative;
-    width: 100%;
-    max-width: 1100px;
-    height: 500px; /* Set height */
-    border-radius: 80% / 95%;
-    border: 1.5px solid white;
-    overflow: hidden; /* Ensures GIF stays inside */
-    display: flex;
     justify-content: center;
     align-items: center;
-}
-
-
-
-
-.oval-gif {
-    position: absolute;
-    width: 120%;  /* Make it slightly larger to avoid empty spaces */
-    height: 120%; /* Stretch it slightly */
-    object-fit: cover; /* Ensures GIF fills the space */
-    clip-path: ellipse(50% 48% at center); /* Crops it to oval shape */
-    z-index: -1; /* Moves it behind text */
-}
-
-
-.oval-content {
-    position: relative;
-    z-index: 2; /* Higher than GIF */
     text-align: center;
+    height: 100vh;
+    transition: width 0.5s ease-in-out;
 }
-
-
-
-
-
-
-/* 🌿 PAST SECTION */
 
 #past {
     background: radial-gradient(circle, #4CAF50 0%, #1e4d2b 40%, #0a1b0a 100%);
-    color: white;
-    text-align: center;
-    /* padding: 200px 0; */
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
 }
 
-#past h2 {
-    font-size: 8rem;
-    font-family: 'Instrument Serif', serif;
-    font-weight: 100;
-    margin: 0;
-    letter-spacing: -8px;
-}
-
-#past p {
-    font-size: 1.8rem;
-    margin-bottom: 30px;
-    margin-top: 0;
-}
-
-/* 🌿 PRESENT SECTION */
 #present {
     background: radial-gradient(circle, #d7995b 0%, #7a4f27 40%, #1e0e06 100%);
-    color: white;
-    text-align: center;
-    padding: 200px 0;
-    flex: 1;
+}
+
+#past:hover, #present:hover {
+    filter: brightness(1.2);
+}
+
+
+/* General Content Block Styling */
+.block-item {
+    width: 200px; /* Set a fixed width */
+    height: 200px; /* Set a fixed height */
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    background: url('assets/noise-texture.png'); /* Apply noise background */
+    background-size: cover;
+    border-radius: 10000px; /* Optional: rounded corners */
+    overflow: hidden; /* Ensures no overflow */
+}
+
+/* Ensure Images & Videos Fit Properly */
+.block-item img,
+.block-item video,
+.block-item audio {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures full coverage */
+    border-radius: 10px;
+}
+
+/* Apply Consistent Styling for Different Block Types */
+.block-item p {
+    font-size: 1rem;
     text-align: center;
+    padding: 10px;
+    color: white; /* Ensure text is visible */
 }
 
-#present h2 {
-    font-size: 8rem;
-    font-family: 'Instrument Serif', serif;
-    font-weight: 100;
-    margin: 0;
-    letter-spacing: -8px;
-}
-
-#present p {
-    font-size: 1.8rem;
-    margin-bottom: 30px;
-}
-
-/* CTA Button */
-.cta-button {
-    display: inline-block;
-    padding: 15px 30px;
-    font-size: 14px;
-    letter-spacing: -0.5px;
-    text-transform: uppercase;
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
-    border: 2px solid 1e4d2b;
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-.cta-button:hover {
-    background: white;
-    color: black;
-}
-
-.sections-container {
-    display: flex;
-    width: 100vw;
-    height: 100vh;
-}
-
-
-
-/* Ensure sections are relative so the noise overlay positions correctly */
+/* Make Grid Layout Responsive */
 #past, #present {
-    position: relative;
-}
-
-/* Adding Noise Texture Layer */
-#past::before,
-#present::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('assets/noise-texture.png');
-    background-size: cover;
-    opacity: 0.1; /* Adjust for subtle effect */
-    pointer-events: none; /* Prevents interference with clicks */
-    z-index: 1; /* Places it above the gradient */
-}
-
-
-
-
-
-
-
-/* Default: Only White Outline, No Fill */
-#past, #present {
-    flex: 1;
-    height: 100vh;
-    width: 50vw;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 20px; /* Space between items */
     justify-content: center;
-    align-items: center;
-    text-align: center;
-    position: relative;
-    background: transparent; /* No fill */
-    clip-path: circle(80% at center);
-    transition: background 0.5s ease-in-out, border 0.5s ease-in-out, clip-path 0.5s ease-in-out;
-}
-
-/* Noise Overlay */
-#past::before, 
-#present::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('assets/noise-texture.png'), 
-                radial-gradient(circle, rgba(0,0,0,0) 50%, #252B15 100%);
-    background-size: cover;
-    opacity: 0.3;
-    pointer-events: none;
-    z-index: 1;
-}
-
-/* Hover: Show Radial Gradient */
-#past:hover {
-    background: radial-gradient(circle, rgba(76, 175, 80, 0.8) 10%, rgba(30, 77, 43, 0) 50%, rgba(10, 27, 10, 0) 100%);
-    border: none;
-    clip-path: circle(45% at center);
-}
-
-#present:hover {
-    background: radial-gradient(circle, rgba(215, 153, 91, 0.8) 10%, rgba(122, 79, 39, 0) 50%, rgba(30, 14, 6, 0) 100%);
-    border: none;
-    clip-path: circle(45% at center);
-}
-
-.sections-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100vw;
-    gap: 150px;
-    padding: 150px 0;
-    min-height: 100vh; /* Ensures sections have space */
-}
-
-/* PAST & PRESENT SECTIONS - Vertically Stacked Ovals */
-.section {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    position: relative;
-    width: 100%;
-    min-height: 70vh; /* Allow growth */
-    padding: 50px 0; /* Ensure spacing */
-}
-
-.oval {
-    position: absolute;
-    width: 70vw; 
-    height: 55vh; 
-    border-radius: 80% / 60%;
-    border: 2px solid white;
-    transition: background 0.4s ease-in-out, border 0.3s ease-in-out;
-    pointer-events: none; /* Prevents accidental interactions */
-}
-
-/* Default - Only Outline */
-.oval {
-    background: transparent;
-}
-
-#past .oval:hover {
-    background: radial-gradient(circle, rgba(76, 175, 80, 0.9) 20%, rgba(30, 77, 43, 0) 60%, rgba(10, 27, 10, 0) 100%) !important;
-    border: none;
-}
-
-
-#present .oval:hover {
-    background: radial-gradient(circle, #d7995b 0%, rgba(122, 79, 39, 0) 60%);
-    border: none;
-}
-
-/* Add Noise */
-.oval::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('assets/noise-texture.png');
-    background-size: cover;
-    opacity: 0.2;
-    pointer-events: none;
-}
-
-
-/* Adding grid to the arena elements */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Auto-fit for responsive grid */
-    gap: 20px; /* Adds spacing between elements */
     padding: 20px;
-    max-width: 90%;
-    margin: auto;
 }
 
-.grid li {
-    list-style: none;
-    background: rgba(255, 255, 255, 0.05); /* Subtle background */
-    background: transparent;
-    padding: 15px;
-    border-radius: 80px;
+
+
+
+
+
+
+
+
+
+
+/* Play Button */
+.play-audio {
+    margin-top: 20px;
+    padding: 18px;
+    font-size: 1.8rem;
+    border: none;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.3s;
+}
+
+.play-audio:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.modal.show {
+    display: flex;
+    visibility: visible;
+    opacity: 1;
+}
+
+
+.modal-content {
+    background-color: #252B15;
+    padding: 20px;
+    border-radius: 10px;
     text-align: center;
 }
 
-.grid img {
-    width: 100%;
-    height: auto; /* Maintain aspect ratio */
-    max-width: 400px; /* Prevents images from being too large */
-    border-radius: 5px;
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
-.grid video, .grid audio {
+#audio-player {
     width: 100%;
-    max-width: 400px;
-}
-
-
-.grid iframe {
-    width: 100%;
-    max-width: 500px; /* Prevents it from getting too big */
-    height: auto;
-    aspect-ratio: 16 / 9; /* Ensures proper scaling */
-    border-radius: 5px; /* Optional: smooth edges */
-}
-
-
-.grid-item img, .grid-item video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensures full-frame, no awkward stretching */
-  }
-
-  .grid-container {
-    display: grid;
-    gap: 12px; /* Adjust based on how much spacing you want */
-  }
-
-
-  /* .grid-item-label {
-    font-size: 12px;
-    opacity: 0.8; 
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  } */
-
-  .grid-item-label {
-    display: none 
-  }
-
-  .grid-item p, .grid-item span {
-    display: none 
-  }
-  
-
-
-  img, video, audio, iframe {
-    border-radius: 24px; 
-    overflow: hidden;
-  }
-  
-
-
-#channel-link {
-    display: none;
-}
-
-
- 
-
-@media (max-width: 480px) {
-    .oval-container {
-        max-width: 100%;
-        height: 200px; 
-        border-radius: 100% / 100%; 
-    }
-
-
-    .oval-content h1 {
-        font-size: 3rem; 
-    }
-
-    .oval-content p {
-        font-size: 0.8rem; 
-    }
-
-
-
-    #past h2, #present h2 {
-        font-size: 3.5rem; 
-        letter-spacing: -2px; 
-        text-align: center; 
-    }
-
-    #past p, #present p {
-        font-size: 1rem; 
-    }
-
-
+    margin-top: 10px;
 }

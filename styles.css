@@ -48,6 +48,7 @@ header {
     height: 100vh;
     flex-direction: column;
     position: relative;
+    text-align: center;
     background: url('assets/bioluminescent-mushrooms-gif.gif') center/cover no-repeat;
 }
 
@@ -57,17 +58,85 @@ header {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.6);
 }
 
+.hero-background {
+    width: 60vw; /* Adjust the size */
+    max-width: 600px; /* Limit the max size */
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%;
+    transform: translate(-50%, -50%); /* Ensure centering */
+    z-index: 1;
+}
+
+#hero h1{
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+}
+
+
 h1 {
-    font-size: 5rem;
+    font-size: 11rem;
     font-weight: lighter;
-    letter-spacing: -1.5px;
-    margin-bottom: 10px;
+    letter-spacing: -15px;
     line-height: 1.05;
     position: relative;
+    margin: 0;
+   
 }
+
+.hero-content{
+    z-index: 4;
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+
+.hero-content h2 {
+    font-size: 5rem;
+    font-weight: lighter;
+    letter-spacing: -6px;
+    margin: 0;
+}
+
+.hero-content h3 {
+    font-size: 20px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 100;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+    opacity: 0.7;
+    margin: 0;
+}
+
+.hero-content button {
+    padding: 10px 15px;
+    border: none;
+    background: #252B15;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background 0.3s;
+    z-index: 3;
+}
+
+.hero-content button:hover {
+    background: #3a5a40;
+}
+
+
+
+
+
 
 p {
     font-size: 1.2rem;
@@ -142,6 +211,8 @@ p {
     width: 50vw;
     overflow-y: auto; /* Enable scrolling */
     scroll-behavior: smooth;
+    padding: 40px 20px; 
+    margin-top: 300px;
 }
 
 
@@ -306,4 +377,28 @@ p {
 #audio-player {
     width: 100%;
     margin-top: 10px;
+}
+
+
+
+
+/* MOBILE LAST SORRY */
+
+@media (max-width: 768px) {
+    .split-container {
+        flex-direction: column; /* Stack sections vertically */
+        height: auto; /* Allow scrolling */
+    }
+
+    #past, #present {
+        width: 100vw; 
+        height: auto;
+        position: relative; /* Remove fixed positioning */
+        overflow: auto; 
+    }
+
+    #past, #present {
+        filter: none !important;
+}
+
 }

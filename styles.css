@@ -107,24 +107,27 @@ p {
     height: 100vh;
 }
 
-#past, #present {
-    flex: 1;
+
+
+/* Make sure the parent container is also constrained */
+.container {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    height: 100vh;
-    transition: width 0.5s ease-in-out;
+    height: 100vh; /* Force the split to respect viewport */
 }
 
-/* #past {
-    background: radial-gradient(circle, #4CAF50 0%, #1e4d2b 40%, #0a1b0a 100%);
+
+#past {
+    width: 50vw;
+    position: fixed;
+    left: 0;
 }
 
 #present {
-    background: radial-gradient(circle, #d7995b 0%, #7a4f27 40%, #1e0e06 100%);
-} */
+    width: 50vw;
+    position: fixed;
+    right: 0;
+}
+
 
 #past, #present {
     position: relative;
@@ -134,8 +137,27 @@ p {
     text-align: center;
     height: 100vh;
     transition: filter 0.5s ease-in-out;
-    overflow: hidden;
+    /* overflow: hidden; */
+    height: 100vh; /* Ensure full screen height */
+    width: 50vw;
+    overflow-y: auto; /* Enable scrolling */
+    scroll-behavior: smooth;
 }
+
+
+
+/* Hide scrollbar */
+/* #past::-webkit-scrollbar, #present::-webkit-scrollbar {
+    display: none; 
+} */
+
+/* #past, #present {
+    -ms-overflow-style: none;  
+    scrollbar-width: none;  
+} */
+
+
+
 
 /* Past Section */
 #past {

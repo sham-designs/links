@@ -81,6 +81,56 @@ document.querySelector("#present").addEventListener("mouseleave", () => {
     document.querySelector("#present").style.filter = "grayscale(0%)";
 });
 
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    let pastSection = document.querySelector("#past");
+    let presentSection = document.querySelector("#present");
+
+    pastSection.addEventListener("scroll", () => {
+        presentSection.scrollTop = pastSection.scrollTop;
+    });
+
+    presentSection.addEventListener("scroll", () => {
+        pastSection.scrollTop = presentSection.scrollTop;
+    });
+});
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    let pastSection = document.querySelector("#past");
+    let presentSection = document.querySelector("#present");
+
+    function adjustHeight() {
+        let windowHeight = window.innerHeight;
+        pastSection.style.height = `${windowHeight}px`;
+        presentSection.style.height = `${windowHeight}px`;
+    }
+
+    adjustHeight();
+    window.addEventListener("resize", adjustHeight);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Fetch the data from Are.na API
 fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-store' })
     .then((response) => response.json())

@@ -6,8 +6,8 @@ body {
     margin: 0;
     font-family: 'Instrument Serif', serif;
     background-color: #252B15;
-    color: white;
     text-align: center;
+    color: white;
     background-image: url('assets/noise-texture.png');
     background-size: cover;
     background-repeat: repeat;
@@ -69,6 +69,7 @@ header {
     left: 50%;
     transform: translate(-50%, -50%); /* Ensure centering */
     z-index: 1;
+    opacity: 0.8;
 }
 
 #hero-image {
@@ -157,30 +158,6 @@ p {
 
 /* Split Screen Layout */
 
-
-#filter-buttons {
-    text-align: center;
-    margin-top: 20px;
-}
-
-#filter-buttons button {
-    padding: 10px 20px;
-    font-size: 1rem;
-    border: none;
-    background: #252B15;
-    color: white;
-    cursor: pointer;
-    margin: 5px;
-    border-radius: 5px;
-}
-
-#filter-buttons button:hover {
-    background: darkgray;
-}
-
-
-
-
 .split-container {
     display: flex;
     width: 100vw;
@@ -209,6 +186,22 @@ p {
 }
 
 
+
+.section-header {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+
+#past .section-header, #present .section-header {
+    text-align: center;
+}
+
+
 #past, #present {
     position: relative;
     display: flex;
@@ -223,8 +216,31 @@ p {
     overflow-y: auto; /* Enable scrolling */
     scroll-behavior: smooth;
     padding: 40px 20px; 
+
+    text-align: center;
+
 }
 
+
+#past h2, #present h2{
+    font-size: 5rem;
+    font-weight: lighter;
+    font-weight: 100;
+    letter-spacing: -15px;
+    line-height: 1.05;
+}
+
+
+#past p, #present p {
+    font-size: 2rem;
+    opacity: 0.8;
+    margin-bottom: 15px;
+}
+
+
+.play-audio {
+    margin-top: 10px;
+}
 
 
 /* Hide scrollbar */
@@ -265,15 +281,26 @@ p {
 
 
 
-
-
-
 #past:hover, #present:hover {
     filter: brightness(1.2);
 }
 
 
-/* General Content Block Styling */
+
+
+/* Content Blocks - Placement and Styling */
+
+#channel-blocks {
+    position: relative;
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0px;
+}
+
+
+
 .block-item {
     width: 200px; /* Set a fixed width */
     height: 200px; /* Set a fixed height */
@@ -282,9 +309,23 @@ p {
     align-items: center;
     background: url('assets/noise-texture.png'); /* Apply noise background */
     background-size: cover;
-    border-radius: 10000px; /* Optional: rounded corners */
+    /* border-radius: 10000px;  */
+    border-radius: 1%;
     overflow: hidden; /* Ensures no overflow */
 }
+
+
+
+/* Grid Layout */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0px;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+
 
 /* Ensure Images & Videos Fit Properly */
 .block-item img,
@@ -293,7 +334,7 @@ p {
     width: 100%;
     height: 100%;
     object-fit: cover; /* Ensures full coverage */
-    border-radius: 10px;
+    border-radius: 1px;
 }
 
 /* Apply Consistent Styling for Different Block Types */
@@ -308,22 +349,28 @@ p {
 #past, #present {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px; /* Space between items */
+    gap: 0px; /* Space between items */
     justify-content: center;
     padding: 20px;
 }
 
 
 
+/* Trying to fix the channel block stacking */
+
+.section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100vw; /* Ensure it spans full width */
+    padding: 40px 0;
+}
 
 
 
 
-
-
-
-
-/* Play Button */
+/* Play Button beneath section titles */
 .play-audio {
     margin-top: 20px;
     padding: 18px;
@@ -345,49 +392,8 @@ p {
     background: rgba(255, 255, 255, 0.2);
 }
 
-/* Modal Styling */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    justify-content: center;
-    align-items: center;
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-}
-
-.modal.show {
-    display: flex;
-    visibility: visible;
-    opacity: 1;
-}
 
 
-.modal-content {
-    background-color: #252B15;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-}
-
-.close {
-    color: white;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-#audio-player {
-    width: 100%;
-    margin-top: 10px;
-}
 
 
 

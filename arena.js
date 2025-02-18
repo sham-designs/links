@@ -129,8 +129,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-
-
 // Fetch the data from Are.na API
 fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-store' })
     .then((response) => response.json())

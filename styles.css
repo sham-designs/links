@@ -356,16 +356,6 @@ p {
 
 
 
-/* Trying to fix the channel block stacking */
-
-.section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    width: 100vw; /* Ensure it spans full width */
-    padding: 40px 0;
-}
 
 
 
@@ -418,3 +408,14 @@ p {
 }
 
 }
+
+
+
+
+
+
+
+
+
+
+

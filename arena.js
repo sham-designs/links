@@ -23,6 +23,33 @@ let placeChannelInfo = (data) => {
     if (channelLink) channelLink.remove();
 };
 
+
+
+
+// Fetch the data from Are.na API
+// fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-store' })
+//     .then((response) => response.json())
+//     .then((data) => {
+//         console.log(data); // Always good to check your response!
+//         placeChannelInfo(data);
+        
+//         // Loop through the contents and render only relevant ones
+//         data.contents.reverse().forEach((block) => {
+//             renderBlock(block);
+//         });
+//     });
+
+
+
+
+
+
+
+
+
+
+
+
 // Function to filter and place blocks into the correct section
 let renderBlock = (block) => {
     let pastContainer = document.querySelector('#past');
@@ -122,22 +149,78 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-
-
-
-
-
-
-
-// Fetch the data from Are.na API
+//  Fetch API Data (Loads Are.na Content)
 fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-store' })
     .then((response) => response.json())
     .then((data) => {
-        console.log(data); // Always good to check your response!
+        console.log(data);
         placeChannelInfo(data);
-        
-        // Loop through the contents and render only relevant ones
+
+        // Ensure existing content is cleared before appending new blocks
+        document.querySelector("#past").innerHTML += ""; // Preserve header, clear existing blocks
+        document.querySelector("#present").innerHTML += "";
+
+        // Loop through and place blocks into the correct sections
         data.contents.reverse().forEach((block) => {
-            renderBlock(block);
+            let pastContainer = document.querySelector('#past');
+            let presentContainer = document.querySelector('#present');
+
+            let title = block.title ? block.title.toLowerCase() : "";
+            let isPast = title.includes("[past]");
+            let isPresent = title.includes("[present]");
+
+            let blockItem = document.createElement("div");
+            blockItem.classList.add("block-item");
+
+            if (block.class === 'Image') {
+                blockItem.innerHTML = `<img src="${block.image.original.url}" alt="${block.title}">`;
+            } else if (block.class === 'Text') {
+                blockItem.innerHTML = `<p>${block.content}</p>`;
+            } else if (block.class === 'Attachment' && block.attachment.content_type.includes('video')) {
+                blockItem.innerHTML = `<video controls src="${block.attachment.url}"></video>`;
+            } else if (block.class === 'Attachment' && block.attachment.content_type.includes('audio')) {
+                blockItem.innerHTML = `<audio controls src="${block.attachment.url}"></audio>`;
+            }
+
+            if (isPast) {
+                pastContainer.appendChild(blockItem);
+            } else if (isPresent) {
+                presentContainer.appendChild(blockItem);
+            }
+        });
+
+        // 🚀 Ensure content is hidden initially
+        document.querySelectorAll("#past .block-item, #present .block-item").forEach(item => {
+            item.style.display = "none";
+        });
+    })
+    .catch(error => console.error("Error fetching data:", error));
+
+// 🚀 Toggle Function (Reveals Content On Click)
+document.addEventListener("DOMContentLoaded", function () {
+    const buttons = document.querySelectorAll(".toggle-section");
+    const pastBlocks = document.querySelectorAll("#past .block-item");
+    const presentBlocks = document.querySelectorAll("#present .block-item");
+
+    // Initially hide all blocks, keeping only the title & button visible
+    pastBlocks.forEach(block => (block.style.display = "none"));
+    presentBlocks.forEach(block => (block.style.display = "none"));
+
+    buttons.forEach(button => {
+        button.addEventListener("click", function () {
+            const target = this.getAttribute("data-target");
+
+            if (target === "past") {
+                pastBlocks.forEach(block => (block.style.display = "flex"));
+                presentBlocks.forEach(block => (block.style.display = "none"));
+            } else {
+                presentBlocks.forEach(block => (block.style.display = "flex"));
+                pastBlocks.forEach(block => (block.style.display = "none"));
+            }
         });
     });
+});
+
+
+
+

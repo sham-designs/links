@@ -324,12 +324,12 @@ document.addEventListener("DOMContentLoaded", function () {
         cursor.style.left = `${x}px`;
         cursor.style.top = `${y}px`;
 
-        // Move buttons slightly below cursor
+        // Button placement
         pastBtn.style.left = `${x - 10}px`;
-        pastBtn.style.top = `${y + 30}px`;
+        pastBtn.style.top = `${y + 60}px`;
 
         presentBtn.style.left = `${x + 10}px`;
-        presentBtn.style.top = `${y + 30}px`;
+        presentBtn.style.top = `${y + 60}px`;
     });
 
     // When hovering left (Show Past)

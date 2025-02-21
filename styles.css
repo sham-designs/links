@@ -599,23 +599,6 @@ body {
 }
 
 
-/* Floating Buttons (Following Cursor) */
-.floating-btn {
-    position: absolute;
-    padding: 8px 16px;
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 14px;
-    pointer-events: none; /* So they don’t block cursor movement */
-    opacity: 0; /* Hidden by default */
-    transition: opacity 0.3s ease-in-out;
-}
-
-
-
-
 
 
 #custom-cursor {
@@ -628,16 +611,53 @@ body {
     transition: opacity 0.2s ease-in-out, transform 0.2s ease-out;
 }
 
-.explore-btn {
-    position: fixed;
+
+
+
+/* Floating Buttons (Following Cursor) */
+/* Floating Buttons (Following Cursor) */
+.floating-btn {
+    position: absolute;
+    font-family: 'Instrument Serif', serif; /* Ensuring the font is loaded */
+    font-size: 80px; /* Adjust as needed */
+    color: white;
+    background: none; /* No background */
+    border: none;
+    cursor: pointer;
     opacity: 0; /* Hidden by default */
-    transition: opacity 0.3s ease-in-out;
-    font-size: 14px;
-    background: transparent;
+    pointer-events: none; /* So it doesn't interfere with cursor */
+    transition: opacity 0.3s ease-in-out, transform 0.2s ease-out;
+    letter-spacing: 1px;
+    z-index: 3;
+}
+
+
+
+
+/* .explore-btn {
+    position: fixed;
+    opacity: 0; 
+    transition: opacity 0.3s ease-in-out, transform 0.2s ease-out;
+    font-size: 16px; 
+    font-family: 'Instrument Serif', serif;
+    background: none;
     color: white;
     border: none;
     cursor: pointer;
+    pointer-events: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+} */
+
+/* Adjusting position to be slightly below the cursor */
+#past-btn {
+    transform: translate(-10px, 40px); /* Moves slightly below */
 }
+
+#present-btn {
+    transform: translate(10px, 40px);
+}
+
 
 
 

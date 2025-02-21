@@ -484,7 +484,7 @@ p {
 
 
 /* Explore Buttons - Initially Hidden */
-.explore-btn {
+/* .explore-btn {
     position: absolute;
     top: 80%;
     left: 50%;
@@ -498,7 +498,7 @@ p {
     border-radius: 5px;
     opacity: 0;
     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-}
+} */
 
 /* Button Visibility on Hover */
 .hero-past #past-btn,
@@ -613,6 +613,18 @@ body {
 
 
 
+.cursor-link {
+    position: absolute;
+    width: 120px; /* Match cursor + text size */
+    height: 40px; /* Match cursor + text size */
+    pointer-events: auto; /* Allow clicking */
+    z-index: 1000; /* Keep it above */
+    opacity: 0; /* Hide but clickable */
+}
+
+
+
+
 
 /* Floating Buttons (Following Cursor) */
 /* Floating Buttons (Following Cursor) */
@@ -625,7 +637,7 @@ body {
     border: none;
     cursor: pointer;
     opacity: 0; /* Hidden by default */
-    pointer-events: none; /* So it doesn't interfere with cursor */
+    pointer-events: auto; 
     transition: opacity 0.3s ease-in-out, transform 0.2s ease-out;
     letter-spacing: 1px;
     z-index: 3;

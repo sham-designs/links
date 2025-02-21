@@ -309,6 +309,63 @@ document.addEventListener("DOMContentLoaded", function () {
 
 //CUSTOM CURSOR AND BUTTON ON HOVER
 
+// document.addEventListener("DOMContentLoaded", function () {
+//     let cursor = document.getElementById("custom-cursor");
+//     let cursorImg = document.getElementById("cursor-img");
+//     let pastBtn = document.getElementById("past-btn");
+//     let presentBtn = document.getElementById("present-btn");
+//     let hero = document.getElementById("hero");
+
+//     document.addEventListener("mousemove", function (e) {
+//         let x = e.clientX;
+//         let y = e.clientY;
+
+//         // Move cursor image smoothly
+//         cursor.style.left = `${x}px`;
+//         cursor.style.top = `${y}px`;
+
+//         // Button placement
+//         pastBtn.style.left = `${x - 10}px`;
+//         pastBtn.style.top = `${y + 60}px`;
+
+//         presentBtn.style.left = `${x + 10}px`;
+//         presentBtn.style.top = `${y + 60}px`;
+//     });
+
+//     // When hovering left (Show Past)
+//     document.querySelector(".hover-left").addEventListener("mouseenter", function () {
+//         cursorImg.src = "assets/left-arrow.svg";
+//         cursor.style.opacity = "1"; // Ensure cursor is visible
+//         pastBtn.style.opacity = "1"; // Show button
+//         presentBtn.style.opacity = "0"; // Hide other button
+//     });
+
+//     // When hovering right (Show Present)
+//     document.querySelector(".hover-right").addEventListener("mouseenter", function () {
+//         cursorImg.src = "assets/right-arrow.svg";
+//         cursor.style.opacity = "1"; // Ensure cursor is visible
+//         presentBtn.style.opacity = "1"; // Show button
+//         pastBtn.style.opacity = "0"; // Hide other button
+//     });
+
+//     // When in middle zone (Reset cursor)
+//     hero.addEventListener("mouseleave", function () {
+//         cursorImg.src = "";
+//         cursor.style.opacity = "0"; // Hide cursor when leaving
+//         pastBtn.style.opacity = "0";
+//         presentBtn.style.opacity = "0";
+//     });
+// });
+
+
+
+
+
+
+// CUSTOM CURSOR AND BUTTON ON HOVER
+
+// CUSTOM CURSOR AND BUTTON ON HOVER
+
 document.addEventListener("DOMContentLoaded", function () {
     let cursor = document.getElementById("custom-cursor");
     let cursorImg = document.getElementById("cursor-img");
@@ -323,36 +380,45 @@ document.addEventListener("DOMContentLoaded", function () {
         // Move cursor image smoothly
         cursor.style.left = `${x}px`;
         cursor.style.top = `${y}px`;
-
-        // Button placement
-        pastBtn.style.left = `${x - 10}px`;
-        pastBtn.style.top = `${y + 60}px`;
-
-        presentBtn.style.left = `${x + 10}px`;
-        presentBtn.style.top = `${y + 60}px`;
+        
+        // Move buttons below cursor
+        pastBtn.style.left = `${x}px`;
+        pastBtn.style.top = `${y + 50}px`;
+        
+        presentBtn.style.left = `${x}px`;
+        presentBtn.style.top = `${y + 50}px`;
     });
 
-    // When hovering left (Show Past)
+    // Hover on left → Show Past
     document.querySelector(".hover-left").addEventListener("mouseenter", function () {
         cursorImg.src = "assets/left-arrow.svg";
-        cursor.style.opacity = "1"; // Ensure cursor is visible
-        pastBtn.style.opacity = "1"; // Show button
-        presentBtn.style.opacity = "0"; // Hide other button
+        cursor.style.opacity = "1"; 
+        pastBtn.style.opacity = "1"; 
+        presentBtn.style.opacity = "0"; 
     });
 
-    // When hovering right (Show Present)
+    // Hover on right → Show Present
     document.querySelector(".hover-right").addEventListener("mouseenter", function () {
         cursorImg.src = "assets/right-arrow.svg";
-        cursor.style.opacity = "1"; // Ensure cursor is visible
-        presentBtn.style.opacity = "1"; // Show button
-        pastBtn.style.opacity = "0"; // Hide other button
+        cursor.style.opacity = "1"; 
+        presentBtn.style.opacity = "1"; 
+        pastBtn.style.opacity = "0"; 
     });
 
-    // When in middle zone (Reset cursor)
+    // Leave middle → Hide everything
     hero.addEventListener("mouseleave", function () {
         cursorImg.src = "";
-        cursor.style.opacity = "0"; // Hide cursor when leaving
+        cursor.style.opacity = "0"; 
         pastBtn.style.opacity = "0";
         presentBtn.style.opacity = "0";
+    });
+
+    // 🚀 Make buttons clickable 
+    pastBtn.addEventListener("click", function () {
+        window.location.href = "past.html"; 
+    });
+    
+    presentBtn.addEventListener("click", function () {
+        window.location.href = "present.html"; 
     });
 });

@@ -87,59 +87,59 @@ let renderBlock = (block) => {
     }
 };
 
-// Hover-based Desaturation Effect
-document.querySelector("#past").addEventListener("mouseenter", () => {
-    document.querySelector("#present").style.filter = "grayscale(100%)";
-    document.querySelector("#past").style.filter = "grayscale(0%)";
-});
+// Hover-based Desaturation Effect for split sections
+// document.querySelector("#past").addEventListener("mouseenter", () => {
+//     document.querySelector("#present").style.filter = "grayscale(100%)";
+//     document.querySelector("#past").style.filter = "grayscale(0%)";
+// });
 
-document.querySelector("#present").addEventListener("mouseenter", () => {
-    document.querySelector("#past").style.filter = "grayscale(100%)";
-    document.querySelector("#present").style.filter = "grayscale(0%)";
-});
+// document.querySelector("#present").addEventListener("mouseenter", () => {
+//     document.querySelector("#past").style.filter = "grayscale(100%)";
+//     document.querySelector("#present").style.filter = "grayscale(0%)";
+// });
 
-document.querySelector("#past").addEventListener("mouseleave", () => {
-    document.querySelector("#past").style.filter = "grayscale(0%)";
-    document.querySelector("#present").style.filter = "grayscale(0%)";
-});
+// document.querySelector("#past").addEventListener("mouseleave", () => {
+//     document.querySelector("#past").style.filter = "grayscale(0%)";
+//     document.querySelector("#present").style.filter = "grayscale(0%)";
+// });
 
-document.querySelector("#present").addEventListener("mouseleave", () => {
-    document.querySelector("#past").style.filter = "grayscale(0%)";
-    document.querySelector("#present").style.filter = "grayscale(0%)";
-});
-
-
-
-
-document.addEventListener("DOMContentLoaded", () => {
-    let pastSection = document.querySelector("#past");
-    let presentSection = document.querySelector("#present");
-
-    pastSection.addEventListener("scroll", () => {
-        presentSection.scrollTop = pastSection.scrollTop;
-    });
-
-    presentSection.addEventListener("scroll", () => {
-        pastSection.scrollTop = presentSection.scrollTop;
-    });
-});
+// document.querySelector("#present").addEventListener("mouseleave", () => {
+//     document.querySelector("#past").style.filter = "grayscale(0%)";
+//     document.querySelector("#present").style.filter = "grayscale(0%)";
+// });
 
 
 
 
-document.addEventListener("DOMContentLoaded", () => {
-    let pastSection = document.querySelector("#past");
-    let presentSection = document.querySelector("#present");
+// document.addEventListener("DOMContentLoaded", () => {
+//     let pastSection = document.querySelector("#past");
+//     let presentSection = document.querySelector("#present");
 
-    function adjustHeight() {
-        let windowHeight = window.innerHeight;
-        pastSection.style.height = `${windowHeight}px`;
-        presentSection.style.height = `${windowHeight}px`;
-    }
+//     pastSection.addEventListener("scroll", () => {
+//         presentSection.scrollTop = pastSection.scrollTop;
+//     });
 
-    adjustHeight();
-    window.addEventListener("resize", adjustHeight);
-});
+//     presentSection.addEventListener("scroll", () => {
+//         pastSection.scrollTop = presentSection.scrollTop;
+//     });
+// });
+
+
+
+
+// document.addEventListener("DOMContentLoaded", () => {
+//     let pastSection = document.querySelector("#past");
+//     let presentSection = document.querySelector("#present");
+
+//     function adjustHeight() {
+//         let windowHeight = window.innerHeight;
+//         pastSection.style.height = `${windowHeight}px`;
+//         presentSection.style.height = `${windowHeight}px`;
+//     }
+
+//     adjustHeight();
+//     window.addEventListener("resize", adjustHeight);
+// });
 
 
 
@@ -196,7 +196,11 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
     })
     .catch(error => console.error("Error fetching data:", error));
 
-// 🚀 Toggle Function (Reveals Content On Click)
+
+
+
+
+//  Toggle Function (Reveals Content On Click)
 document.addEventListener("DOMContentLoaded", function () {
     const buttons = document.querySelectorAll(".toggle-section");
     const pastBlocks = document.querySelectorAll("#past .block-item");
@@ -224,3 +228,77 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+
+
+
+
+// This code is trying to make the hover on intro section work
+
+// document.addEventListener("DOMContentLoaded", function () {
+//     let heroSection = document.getElementById("hero");
+//     let pastButton = document.getElementById("past-btn");
+//     let presentButton = document.getElementById("present-btn");
+
+//     document.querySelector(".hover-left").addEventListener("mouseenter", function () {
+//         heroSection.classList.add("hero-past");
+//         heroSection.classList.remove("hero-present");
+//         pastButton.style.opacity = "1";
+//         presentButton.style.opacity = "0";
+//     });
+
+//     document.querySelector(".hover-right").addEventListener("mouseenter", function () {
+//         heroSection.classList.add("hero-present");
+//         heroSection.classList.remove("hero-past");
+//         presentButton.style.opacity = "1";
+//         pastButton.style.opacity = "0";
+//     });
+
+//     heroSection.addEventListener("mouseleave", function () {
+//         heroSection.classList.remove("hero-past", "hero-present");
+//         pastButton.style.opacity = "0";
+//         presentButton.style.opacity = "0";
+//     });
+// });
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    let heroSection = document.getElementById("hero");
+    let pastButton = document.getElementById("past-btn");
+    let presentButton = document.getElementById("present-btn");
+    let heroImage = document.querySelector(".hero-background");
+
+    document.querySelector(".hover-left").addEventListener("mouseenter", function () {
+        heroSection.classList.add("hero-past");
+        heroSection.classList.remove("hero-present", "hero-middle");
+        heroImage.src = "assets/hero image.png"; // Default rainforest image
+        pastButton.style.opacity = "1";
+        presentButton.style.opacity = "0";
+    });
+
+    document.querySelector(".hover-right").addEventListener("mouseenter", function () {
+        heroSection.classList.add("hero-present");
+        heroSection.classList.remove("hero-past", "hero-middle");
+
+         heroImage.src = "assets/ForestFireImage.jpg"; // Fire image
+        
+        presentButton.style.opacity = "1";
+        pastButton.style.opacity = "0";
+    });
+
+    document.querySelector(".hover-middle").addEventListener("mouseenter", function () {
+        heroSection.classList.add("hero-middle");
+        heroSection.classList.remove("hero-past", "hero-present");
+        heroImage.src = "assets/hero image.png"; // Neutral state, default image
+        pastButton.style.opacity = "0";
+        presentButton.style.opacity = "0";
+    });
+
+    heroSection.addEventListener("mouseleave", function () {
+        heroSection.classList.remove("hero-past", "hero-present", "hero-middle");
+        heroImage.src = "assets/hero image.png"; // Reset to default image
+        pastButton.style.opacity = "0";
+        presentButton.style.opacity = "0";
+    });
+});

@@ -18,38 +18,58 @@
     </header>
 
     <section id="hero">
+
+        <!-- This is to add a tint on hover -->
+        <div class="hero-tint"></div>
+
+
+        <!-- These are the hover zones -->
+        <div class="hover-left"></div>
+        <div class="hover-middle"></div>
+        <div class="hover-right"></div>
         
         <div class="hero-overlay"></div>
             <h1>Amazon Rainforest</h1>
-            <img src="assets/hero image.png" alt="Amazon Rainforest" class="hero-background" id="hero-image">
+                        <!-- <img src="assets/hero image.png" alt="Amazon Rainforest" class="hero-background" id="hero-image"> -->
+
+                        <div class="hero-images">
+                            <img src="assets/hero image.png" alt="Amazon Rainforest" class="hero-background default-image">
+                            <img src="assets/Forestfire.jpg" alt="Amazon Burning" class="hero-background fire-image">
+                        </div>
+
+
+
             <div class="hero-content">
                 <h2>A lush paradise or a burning reality?</h2>
                 <h3>EXPLORE THE DUALITY</h3>
-                <!-- <button>>></button> -->
+
+                <!-- Buttons for navigation after hover -->
+                        <button class="explore-btn" id="past-btn" onclick="location.href='past.html'">Explore Past</button>
+                        <button class="explore-btn" id="present-btn" onclick="location.href='present.html'">Explore Present</button>
             </div>
     </section>
 
     <main>       
-        <section class="split-container">
+        <!-- <section class="split-container">
             <section id="past" class="section">
                 <div class="section-header">
                     <h2>The Past</h2>
-                    <p>How it used to be.</p>
+                    <p>How it used to be.</p> -->
                     <!-- <button class="toggle-section" data-target="past">Show Past</button> -->
-                    <button onclick="window.location.href='past.html'">Show Past</button>
-                </div>
-            </section>
-            
+                    <!-- <button onclick="window.location.href='past.html'">Show Past</button> -->
+                <!-- </div>
+            </section> -->
+<!--             
             <section id="present" class="section">
                 <div class="section-header">
                     <h2>The Present</h2>
-                    <p>How it has been recently.</p>
+                    <p>How it has been recently.</p> -->
                     <!-- <button class="toggle-section" data-target="present">Show Present</button> -->
-                    <button onclick="window.location.href='present.html'">Show Present</button>
-                </div>
+                    <!-- <button onclick="window.location.href='present.html'">Show Present</button> -->
+                <!-- </div>
             </section>
         </section>
-    
+     -->
         <!-- This is the channel blocks -->
 
         <h1 id="channel-title"></h1>

@@ -631,7 +631,7 @@ body {
 .floating-btn {
     position: absolute;
     font-family: 'Instrument Serif', serif; /* Ensuring the font is loaded */
-    font-size: 80px; /* Adjust as needed */
+    font-size: 50px; /* Adjust as needed */
     color: white;
     background: none; /* No background */
     border: none;

@@ -364,7 +364,56 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // CUSTOM CURSOR AND BUTTON ON HOVER
 
-// CUSTOM CURSOR AND BUTTON ON HOVER
+
+
+// document.addEventListener("DOMContentLoaded", function () {
+//     let cursor = document.getElementById("custom-cursor");
+//     let cursorImg = document.getElementById("cursor-img");
+//     let pastBtn = document.getElementById("past-btn");
+//     let presentBtn = document.getElementById("present-btn");
+//     let hero = document.getElementById("hero");
+
+//     document.addEventListener("mousemove", function (e) {
+//         let x = e.clientX;
+//         let y = e.clientY;
+
+//         // Move cursor image
+//         cursor.style.left = `${x}px`;
+//         cursor.style.top = `${y}px`;
+
+//         // Move buttons below cursor
+//         pastBtn.style.left = `${x}px`;
+//         pastBtn.style.top = `${y + 50}px`;
+
+//         presentBtn.style.left = `${x}px`;
+//         presentBtn.style.top = `${y + 50}px`;
+//     });
+
+//     // Hover on left → Show Past
+//     document.querySelector(".hover-left").addEventListener("mouseenter", function () {
+//         cursorImg.src = "assets/left-arrow.svg";
+//         cursor.style.opacity = "1"; 
+//         pastBtn.style.opacity = "1"; 
+//         presentBtn.style.opacity = "0"; 
+//     });
+
+//     // Hover on right → Show Present
+//     document.querySelector(".hover-right").addEventListener("mouseenter", function () {
+//         cursorImg.src = "assets/right-arrow.svg";
+//         cursor.style.opacity = "1"; 
+//         presentBtn.style.opacity = "1"; 
+//         pastBtn.style.opacity = "0"; 
+//     });
+
+//     // Leave middle → Hide cursor & buttons
+//     hero.addEventListener("mouseleave", function () {
+//         cursorImg.src = "";
+//         cursor.style.opacity = "0"; 
+//         pastBtn.style.opacity = "0";
+//         presentBtn.style.opacity = "0";
+//     });
+// });
+
 
 document.addEventListener("DOMContentLoaded", function () {
     let cursor = document.getElementById("custom-cursor");
@@ -373,52 +422,57 @@ document.addEventListener("DOMContentLoaded", function () {
     let presentBtn = document.getElementById("present-btn");
     let hero = document.getElementById("hero");
 
-    document.addEventListener("mousemove", function (e) {
+    function updateCursorPosition(e) {
         let x = e.clientX;
         let y = e.clientY;
 
-        // Move cursor image smoothly
         cursor.style.left = `${x}px`;
         cursor.style.top = `${y}px`;
-        
-        // Move buttons below cursor
-        pastBtn.style.left = `${x}px`;
-        pastBtn.style.top = `${y + 50}px`;
-        
-        presentBtn.style.left = `${x}px`;
-        presentBtn.style.top = `${y + 50}px`;
-    });
 
-    // Hover on left → Show Past
-    document.querySelector(".hover-left").addEventListener("mouseenter", function () {
+        // Move floating buttons slightly below the cursor
+        pastBtn.style.left = `${x}px`;
+        pastBtn.style.top = `${y + 60}px`;
+
+        presentBtn.style.left = `${x}px`;
+        presentBtn.style.top = `${y + 60}px`;
+    }
+
+    function showPast() {
         cursorImg.src = "assets/left-arrow.svg";
         cursor.style.opacity = "1"; 
         pastBtn.style.opacity = "1"; 
         presentBtn.style.opacity = "0"; 
-    });
+    }
 
-    // Hover on right → Show Present
-    document.querySelector(".hover-right").addEventListener("mouseenter", function () {
+    function showPresent() {
         cursorImg.src = "assets/right-arrow.svg";
         cursor.style.opacity = "1"; 
         presentBtn.style.opacity = "1"; 
         pastBtn.style.opacity = "0"; 
-    });
+    }
 
-    // Leave middle → Hide everything
-    hero.addEventListener("mouseleave", function () {
+    function resetCursor() {
         cursorImg.src = "";
         cursor.style.opacity = "0"; 
         pastBtn.style.opacity = "0";
         presentBtn.style.opacity = "0";
-    });
+    }
 
-    // 🚀 Make buttons clickable 
-    pastBtn.addEventListener("click", function () {
-        window.location.href = "past.html"; 
-    });
-    
-    presentBtn.addEventListener("click", function () {
-        window.location.href = "present.html"; 
-    });
+    function handleClick(e) {
+        let screenWidth = window.innerWidth;
+        let clickX = e.clientX;
+
+        if (clickX < screenWidth / 2) {
+            window.location.href = "past.html";
+        } else {
+            window.location.href = "present.html";
+        }
+    }
+
+    // Attach event listeners
+    document.addEventListener("mousemove", updateCursorPosition);
+    document.querySelector(".hover-left").addEventListener("mouseenter", showPast);
+    document.querySelector(".hover-right").addEventListener("mouseenter", showPresent);
+    hero.addEventListener("mouseleave", resetCursor);
+    document.addEventListener("click", handleClick);
 });

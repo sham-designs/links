@@ -4,22 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Past</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link your existing CSS -->
+    <!-- <link rel="stylesheet" href="styles.css">  -->
+    <link rel="stylesheet" href="internal.css"> 
 </head>
 
 <script src="past.js"></script>
 
 
 
-<body>
-    <header>
-        <h1>The Past</h1>
-        <button onclick="window.location.href='index.html'">Go Back</button>
-    </header>
 
-    <main id="past-content">
-        <!-- Content will be loaded dynamically -->
-    </main>
+<body>
+    <div class="page-container">
+        <div class="past-header">
+            <div class="header-content">
+                <div class="title-container">
+                    <h1>The Past</h1>
+                    <h2>What It Used to Be</h2>
+                </div>
+                <div class="header-buttons">
+                    <button onclick="window.location.href='index.html'">Go Back</button>
+                    <div class="audio-toggle">
+                        <button id="audio-btn" onclick="toggleAudio()">  <img src="assets/audio.svg" alt="Audio Icon" class="audio-icon"> hear it</button>
+                    </div>
+                    
+                    <audio id="bg-audio">
+                        <source src="assets/sound-of-forest.mp3" type="audio/mpeg">
+                    </audio>
+                </div>
+            </div>
+        </div>
+
+        <main id="past-content">
+            <!-- Content will be loaded dynamically -->
+        </main>
+    </div>
+</body>
 
     
 </body>

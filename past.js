@@ -28,3 +28,33 @@
                 });
             })
             .catch(error => console.error("Error fetching data:", error));
+
+
+
+            //function to fade and out the images smoothly
+            // document.addEventListener("scroll", function () {
+            //     let blocks = document.querySelectorAll(".block-item");
+            //     blocks.forEach(block => {
+            //         let rect = block.getBoundingClientRect();
+            //         if (rect.top < window.innerHeight * 0.9) { 
+            //             block.classList.add("visible");
+            //         }
+            //     });
+            // });
+            
+
+
+            // just to play my audio
+            function toggleAudio() {
+                let audio = document.getElementById("bg-audio");
+                let audioBtn = document.getElementById("audio-btn");
+            
+                if (audio.paused) {
+                    audio.play();
+                    audioBtn.innerHTML = "🔊 Playing";
+                } else {
+                    audio.pause();
+                    audioBtn.innerHTML = "🔇 Muted";
+                }
+            }
+            

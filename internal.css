@@ -117,34 +117,63 @@ body {
 
 
 /* ======== "HEAR IT" BUTTON ======== */
-.audio-container {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-}
-
-.audio-container button {
+.audio-toggle {
+    position: relative; /* Keep it in the flow, no absolute */
+    display: inline-flex;
+    align-items: center;
+    gap: 5px; /* Space between icon and text */
     background: none;
     border: none;
-    /* color: white; */
-    font-size: 1rem;
-    cursor: pointer;
-    text-decoration: underline;
 }
 
-.audio-container button:hover {
+.audio-toggle button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    text-decoration: underline;
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Keeps icon and text neatly spaced */
     color: gray;
-    /* color: transparent; */
+}
+
+.audio-toggle button:hover {
+    color: gray;
 }
 
 .audio-icon {
-    width: 24px;  /* Adjust size as needed */
-    height: 24px;
-    margin-right: 8px; /* Space between icon and text */
+    width: 100px; /* Adjusted to be smaller */
+    height: 100px;
+    margin-right: 5px; /* Ensures proper spacing */
+    display: inline-block;
     vertical-align: middle;
-    /* color: black; */
 }
 
 
+.navigation-past {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /* Centers the buttons */
+    gap: 10px; /* Adds space between buttons */
+    margin-top: 200px; /* Adjusts spacing below the audio button */
+}
 
+.navigation-past button {
+    background: none;
+    border: 1px solid gray;
+    border-style: hidden;
+    border-radius: 4px;
+    padding: 10px 15px;
+    color: gray;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+}
 
+.navigation-past button:hover {
+    background: white;
+    color: black;
+}

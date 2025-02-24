@@ -267,7 +267,8 @@ document.addEventListener("DOMContentLoaded", function () {
         let x = e.clientX;
         let y = e.clientY;
 
-        cursor.style.left = `${x}px`;
+        // cursor.style.left = `${x}px`;
+        cursor.style.left = `${Math.min(x, window.innerWidth - 50)}px`; // Stops at viewport edge
         cursor.style.top = `${y}px`;
 
         // Move floating buttons slightly below the cursor

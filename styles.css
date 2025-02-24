@@ -692,6 +692,19 @@ body {
     overflow: visible;
 }
 
+#custom-cursor {
+    max-width: 50px; /* Restrict size */
+    max-height: 50px;
+    position: fixed;
+    left: 0; 
+    top: 0;
+    pointer-events: none; /* Ensures it doesn't interfere */
+    overflow: hidden;
+    transform: translate(-50%, -50%); /* Ensures it doesn’t extend past edges */
+}
+
+
+
 
 #hero {
     max-width: 100%;
@@ -710,6 +723,8 @@ html,body {
     max-width: 100vw;
     overflow-x: hidden;
 }
+
+
 
 
 

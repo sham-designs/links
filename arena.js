@@ -267,8 +267,8 @@ document.addEventListener("DOMContentLoaded", function () {
         let x = e.clientX;
         let y = e.clientY;
 
-        cursor.style.left = `${Math.min(x, window.innerWidth - 50)}px`;
-        cursor.style.top = `${Math.min(y, window.innerHeight - 50)}px`;
+        cursor.style.left = `${x}px`;
+        cursor.style.top = `${y}px`;
 
 
         // Move floating buttons slightly below the cursor

@@ -345,3 +345,15 @@ document.addEventListener("DOMContentLoaded", function () {
 //     cursor.style.left = `${x}px`;
 //     cursor.style.top = `${y}px`;
 // });
+
+
+
+
+
+//on mobile, hover -> tap
+if (window.innerWidth < 768) {
+    document.querySelector("#past-btn").addEventListener("click", () => {
+      console.log("🔥 Mobile tap detected!");
+    });
+  }
+  

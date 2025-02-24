@@ -686,6 +686,11 @@ body {
     pointer-events: none; 
 }
 
+#custom-cursor {
+    max-width: 50px; 
+    max-height: 50px; 
+    overflow: visible;
+}
 
 
 #hero {
@@ -693,7 +698,15 @@ body {
     overflow: hidden;
 }
 
-body {
+#hero {
+    width: 100vw;
+    max-width: 100vw;
+    height: 100vh;
+    overflow: hidden; 
+}
+
+
+html,body {
     max-width: 100vw;
     overflow-x: hidden;
 }

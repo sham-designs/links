@@ -28,3 +28,24 @@ fetch(`https://api.are.na/v2/channels/amazon-forest?per=100`, { cache: 'no-store
         });
     })
     .catch(error => console.error("Error fetching data:", error));
+
+
+
+
+
+     // just to play my audio
+     function toggleAudio() {
+        let audio = document.getElementById("bg-audio");
+        let audioBtn = document.getElementById("audio-btn");
+    
+        if (audio.paused) {
+            audio.play();
+            audioBtn.innerHTML = "🔊 Playing";
+        } else {
+            audio.pause();
+            audioBtn.innerHTML = "🔇 Muted";
+        }
+    }
+
+ 
+    

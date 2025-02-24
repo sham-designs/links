@@ -4,11 +4,11 @@
 body {
     margin: 0;
     font-family: 'Instrument Serif', serif;
-    background-color: #181c0d;
-    /* background-color: black; */
+    /* background-color: #181c0d; */
+    /* background-color: yellow; */
     text-align: center;
     color: white;
-    background-image: url('assets/noise-texture.png');
+    /* background-image: url('assets/noise-texture.png'); */
     background-size: cover;
     background-repeat: repeat;
     background-blend-mode: overlay;
@@ -19,6 +19,8 @@ body {
 .block-item {
     background: none;
 }
+
+
 
 
 
@@ -79,7 +81,7 @@ body {
 /* ======== CONTENT BLOCKS ======== */
 .block-item {
     flex: 0 0 auto; /* Prevents blocks from shrinking */
-    width: 90vw; /* Each item takes x% of viewport width */
+    width: 70vw; /* Each item takes x% of viewport width */
     height: 90vh; /* Adjust height */
     scroll-snap-align: start; /* Snaps elements into view */
     background-size: cover;
@@ -99,19 +101,36 @@ body {
     /* border-radius: 10px; */
 }
 
-/* .block-item {
-    opacity: 0.3; 
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+
+/*scaling block items*/
+/* 
+.block-item {
+    transition: transform 0.4s ease-out, opacity 0.3s ease-out;
+    transform: scale(0.7);
+    opacity: 0.3;
+    will-change: transform, opacity; 
 }
 
-.block-item.visible {
+.block-item.in-view {
+    transform: scale(1.7); 
     opacity: 1;
-    transform: translateY(0); 
 } */
 
 
 
+
+
+
+
+body {
+    background: url('assets/noise-texture.png') center/cover;
+    background-color: #181c0d;
+    transition: background-color 0.6s ease-in-out;
+}
+
+body.dark-background {
+    background: black;
+}
 
 
 

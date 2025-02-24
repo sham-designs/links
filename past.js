@@ -58,3 +58,29 @@
                 }
             }
             
+
+          //scale up block item
+          function checkBlocksInView() {
+            let blocks = document.querySelectorAll(".block-item");
+        
+            blocks.forEach(block => {
+                let rect = block.getBoundingClientRect();
+                let windowWidth = window.innerWidth;
+        
+                // Now checking if even a part of the block is visible
+                let isPartiallyVisible = rect.right > 0 && rect.left < windowWidth;
+        
+                if (isPartiallyVisible) {
+                    block.classList.add("in-view");
+                } else {
+                    block.classList.remove("in-view");
+                }
+            });
+        }
+        
+        // Run on scroll + resize
+        window.addEventListener("scroll", checkBlocksInView);
+        window.addEventListener("resize", checkBlocksInView);
+        checkBlocksInView();
+        
+            

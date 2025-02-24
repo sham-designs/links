@@ -76,6 +76,10 @@ let renderBlock = (block) => {
     } else if (block.class === 'Attachment' && block.attachment.content_type.includes('audio')) {
         blockItem.innerHTML = `<audio controls src="${block.attachment.url}"></audio>`;
     }
+    else if (block.class === 'Link') { //for links
+        blockItem.innerHTML = `<a href="${block.source.url}" target="_blank">${block.title || 'Open Link'}</a>`;
+    }
+    
     
     // Append the block to the correct section or default grid
     if (isPast) {
@@ -414,6 +418,8 @@ document.addEventListener("DOMContentLoaded", function () {
 //     });
 // });
 
+
+//Custom Hover function on intro page
 
 document.addEventListener("DOMContentLoaded", function () {
     let cursor = document.getElementById("custom-cursor");

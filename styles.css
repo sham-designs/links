@@ -692,16 +692,16 @@ body {
     overflow: visible;
 }
 
-#custom-cursor {
-    max-width: 50px; /* Restrict size */
+/* #custom-cursor {
+    max-width: 50px; 
     max-height: 50px;
     position: fixed;
     left: 0; 
     top: 0;
-    pointer-events: none; /* Ensures it doesn't interfere */
+    pointer-events: none; 
     overflow: hidden;
-    transform: translate(-50%, -50%); /* Ensures it doesn’t extend past edges */
-}
+    transform: translate(-50%, -50%); 
+} */
 
 
 

@@ -336,12 +336,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 //trying not to let custom cursor overflow
-let cursor = document.getElementById("custom-cursor");
+// let cursor = document.getElementById("custom-cursor");
 
-document.addEventListener("mousemove", function (e) {
-    let x = Math.min(e.clientX, window.innerWidth - 50);
-    let y = Math.min(e.clientY, window.innerHeight - 50);
+// document.addEventListener("mousemove", function (e) {
+//     let x = Math.min(e.clientX, window.innerWidth - 50);
+//     let y = Math.min(e.clientY, window.innerHeight - 50);
     
-    cursor.style.left = `${x}px`;
-    cursor.style.top = `${y}px`;
-});
+//     cursor.style.left = `${x}px`;
+//     cursor.style.top = `${y}px`;
+// });

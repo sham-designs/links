@@ -78,6 +78,9 @@ body {
     padding: 20px;
 }
 
+
+
+
 /* ======== CONTENT BLOCKS ======== */
 .block-item {
     flex: 0 0 auto; /* Prevents blocks from shrinking */
@@ -102,19 +105,7 @@ body {
 }
 
 
-/*scaling block items*/
-/* 
-.block-item {
-    transition: transform 0.4s ease-out, opacity 0.3s ease-out;
-    transform: scale(0.7);
-    opacity: 0.3;
-    will-change: transform, opacity; 
-}
 
-.block-item.in-view {
-    transform: scale(1.7); 
-    opacity: 1;
-} */
 
 
 
@@ -233,4 +224,54 @@ body.dark-background {
 
 .play-button:hover {
     background-color: rgba(0, 0, 0, 0.9);
+}
+
+
+
+/* mobile media queries for internal pages */
+@media (min-width: 360px) and (max-width: 650px) {
+
+
+    #past-content {
+        display: flex;
+        flex-direction: column; /* Stack items vertically */
+        overflow-x: hidden; /* Remove horizontal scroll */
+        overflow-y: auto; /* Enable vertical scrolling */
+        white-space: normal; /* Allow text wrapping */
+        scroll-snap-type: y mandatory; /* Vertical snap scrolling */
+        height: 100vh; /* Take full screen height */
+        width: 100vw; /* Ensure it fills the viewport */
+        gap: 20px; /* Adds space between items */
+        padding: 20px;
+    }
+
+    .page-container {
+        flex-direction: column; /* Stack elements vertically */
+        height: auto; /* Allow content to define height */
+    }
+
+    .past-header {
+        flex: none; /* Remove fixed width */
+        width: 100vw; /* Full width */
+        height: auto; /* Auto height */
+        padding: 20px;
+        text-align: center; /* Center text */
+    }
+
+    .past-header h1 {
+        font-size: 80px; /* Reduce font size for mobile */
+        letter-spacing: -5px;
+    }
+
+    .past-header h2 {
+        font-size: 18px;
+    }
+
+
+
+
+
+
+    
+
 }

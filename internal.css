@@ -245,6 +245,23 @@ body.dark-background {
         padding: 20px;
     }
 
+
+    .block-item {
+        width: 100vw; /* Full width */
+        height: auto; /* Auto height */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .block-item img, 
+    .block-item video, 
+    .block-item audio {
+        width: 100%;
+        height: auto;
+        object-fit: cover; /* Maintain aspect ratio */
+    }
+
     .page-container {
         flex-direction: column; /* Stack elements vertically */
         height: auto; /* Allow content to define height */

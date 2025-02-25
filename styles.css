@@ -475,10 +475,7 @@ html,body {
         letter-spacing: var(--base-letter-space);
       }
 
-      #custom-cursor {
-        display: none; 
-      }
-
+      
 }
 
 /* Screens larger than 1100 so DESKTOP DESKTOP */
@@ -510,9 +507,7 @@ html,body {
         letter-spacing: var(--base-letter-space);
       }
 
-      #custom-cursor {
-        display: none; 
-      }
+     
 
 }
 

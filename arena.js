@@ -16,11 +16,6 @@ let placeChannelInfo = (data) => {
     let channelCount = document.querySelector('#channel-count');
     let channelLink = document.querySelector('#channel-link');
 
-    // Remove these elements since we are not displaying them
-    if (channelTitle) channelTitle.remove();
-    if (channelDescription) channelDescription.remove();
-    if (channelCount) channelCount.remove();
-    if (channelLink) channelLink.remove();
 };
 
 
@@ -39,7 +34,7 @@ let placeChannelInfo = (data) => {
 let renderBlock = (block) => {
     let pastContainer = document.querySelector('#past');
     let presentContainer = document.querySelector('#present');
-    let defaultContainer = document.querySelector('#channel-blocks'); // Default grid for unlabeled content
+    let defaultContainer = document.querySelector('#channel-blocks'); //
 
     // Ensure the block has a title before checking
     let title = block.title ? block.title.toLowerCase() : "";
@@ -50,20 +45,43 @@ let renderBlock = (block) => {
     
     let blockItem = document.createElement("div");
     blockItem.classList.add("block-item");
+
+    let titleElement = document.createElement("div");
+    titleElement.classList.add("block-title");
+    titleElement.innerText = block.title || "Untitled"; // not have empty title
+
     
     // Handling different content types
     if (block.class === 'Image') {
         blockItem.innerHTML = `<img src="${block.image.original.url}" alt="${block.title}">`;
-    } else if (block.class === 'Text') {
+    } 
+    
+    
+    else if (block.class === 'Text') {
         blockItem.innerHTML = `<p>${block.content}</p>`;
-    } else if (block.class === 'Attachment' && block.attachment.content_type.includes('video')) {
+    } 
+    
+    
+    
+    else if (block.class === 'Attachment' && block.attachment.content_type.includes('video')) {
         blockItem.innerHTML = `<video controls src="${block.attachment.url}"></video>`;
-    } else if (block.class === 'Attachment' && block.attachment.content_type.includes('audio')) {
+    } 
+    
+    
+    
+    else if (block.class === 'Attachment' && block.attachment.content_type.includes('audio')) {
         blockItem.innerHTML = `<audio controls src="${block.attachment.url}"></audio>`;
     }
+
+
+
+
     else if (block.class === 'Link') { 
         blockItem.innerHTML = `<a href="${block.source.url}" target="_blank">${block.title || 'Open Link'}</a>`;
     } 
+
+
+
     else if (block.class === 'Media' && block.source?.url.includes("youtube.com")) {
         let videoId = block.source.url.split("v=")[1]?.split("&")[0]; // Extract YouTube video ID
         let thumbnailUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`; // Get Thumbnail
@@ -81,6 +99,10 @@ let renderBlock = (block) => {
     }
     
     
+
+    blockItem.appendChild(titleElement);
+
+
     
     // Append the block to the correct section or default grid
     if (isPast) {
@@ -160,7 +182,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-
+//hover zones
 
 document.addEventListener("DOMContentLoaded", function () {
     let heroSection = document.getElementById("hero");

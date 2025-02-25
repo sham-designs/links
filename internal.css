@@ -228,6 +228,32 @@ body.dark-background {
 
 
 
+
+
+/* show title on hover only */
+.block-title {
+    display: none; /* Hide the title initially */
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    white-space: nowrap;
+}
+
+.block-item {
+    position: relative; /* Make sure the title is positioned relative to the block */
+}
+
+.block-item:hover .block-title {
+    display: block; /* Show title on hover */
+}
+
+
 /* mobile media queries for internal pages */
 @media (min-width: 360px) and (max-width: 650px) {
 

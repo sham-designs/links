@@ -427,6 +427,17 @@ html,body {
 
 
 
+.block-item p {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    font-family: var(--base-font);
+}
+
+.block-item:hover p {
+    opacity: 1;
+}
+
+
 
 
 /* MOBILE media queries */
@@ -544,6 +555,18 @@ html,body {
       .mobile-nav {
         display: none;
     }
+
+    #channel-title, #channel-description, #channel-count, #channel-link {
+        opacity: 0; /* Initially hidden */
+        transition: opacity 0.3s ease-in-out;
+    }
+    
+    .block-item:hover #channel-title {
+        opacity: 1; /* Show on hover */
+    }
+
+
+
       
 }
 
@@ -579,6 +602,17 @@ html,body {
       .mobile-nav {
         display: none;
     }
+
+    #channel-title, #channel-description, #channel-count, #channel-link {
+        opacity: 0; /* Initially hidden */
+        transition: opacity 0.3s ease-in-out;
+    }
+    
+    .block-item:hover #channel-title {
+        opacity: 1; /* Show on hover */
+    }
+
+
 
 }
 
@@ -616,6 +650,16 @@ html,body {
       .mobile-nav {
         display: none;
     }
+
+    #channel-title, #channel-description, #channel-count, #channel-link {
+        opacity: 0; /* Initially hidden */
+        transition: opacity 0.3s ease-in-out;
+    }
+    
+    .block-item:hover #channel-title {
+        opacity: 1; /* Show on hover */
+    }
+
 
 }
 

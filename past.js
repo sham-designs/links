@@ -13,6 +13,10 @@
                         let blockItem = document.createElement("div");
                         blockItem.classList.add("block-item");
 
+                        let titleElement = document.createElement("div");
+                         titleElement.classList.add("block-title");
+                         titleElement.innerText = block.title || "Untitled"; 
+
                         if (block.class === 'Image') {
                             blockItem.innerHTML = `<img src="${block.image.original.url}" alt="${block.title}">`;
                         } else if (block.class === 'Text') {
@@ -23,6 +27,8 @@
                             blockItem.innerHTML = `<audio controls src="${block.attachment.url}"></audio>`;
                         }
 
+                        blockItem.appendChild(titleElement);
+                        
                         pastContainer.appendChild(blockItem);
                     }
                 });

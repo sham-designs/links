@@ -56,7 +56,7 @@
             }
             
 
-          //scale up block item
+          //scale up block item (tried this but didnt work)
           function checkBlocksInView() {
             let blocks = document.querySelectorAll(".block-item");
         
@@ -75,7 +75,7 @@
             });
         }
         
-        // Run on scroll + resize
+        // Run on scroll + resize (didnt work either)
         window.addEventListener("scroll", checkBlocksInView);
         window.addEventListener("resize", checkBlocksInView);
         checkBlocksInView();

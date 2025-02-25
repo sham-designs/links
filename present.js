@@ -31,7 +31,8 @@ fetch(`https://api.are.na/v2/channels/amazon-forest?per=100`, { cache: 'no-store
 
 
                 
-//add cover images for links
+//add cover images for links: I had an issue with the thumbails showing up before and they werent going with my aesthetic, so I uploaded a custom image and hid the urls behind a buttom. I took some help with this, although the custom image still failed to show up. Here we are only working with media and links so to be on the safe side we are taking all the diff media blocks in the channel, and assigning different variables to the icon and text i wanted. the function in the end did not work as well (isPDF) which I think is because there was an issue getting the preview link for the article in question. I took some help online for the custom cover function too[https://stackoverflow.com/questions/1789945/how-can-i-check-if-one-string-contains-another-substring] [https://developer.mozilla.org/en-US/docs/Web/CSS/background-image] and some LLM.
+
 
 else if ((block.class === 'Media' || block.class === 'Link' || block.class === 'Attachment') &&
     (block.source?.url || (block.attachment && block.attachment.content_type.includes("pdf")))) {

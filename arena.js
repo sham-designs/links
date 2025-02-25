@@ -27,7 +27,7 @@ let placeChannelInfo = (data) => {
 
 
 
-
+//I wanted to filter the blocks based on title string, so I wanted to understand how I could do it. Here in this function what I understood was that we are checking if the block has a title first, treating = lowercase so case is not an issue, and then assigning storing them in resp variables that would be used to filter the content. I took help from various sources for this function. [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/includes] [https://stackoverflow.com/questions/280634/endswith-and-startswith-functions-in-javascript] and some llm.
 
 
 // Function to filter and place blocks into the correct section
@@ -51,7 +51,7 @@ let renderBlock = (block) => {
     titleElement.innerText = block.title || "Untitled"; // not have empty title
 
     
-    // Handling different content types
+    //  content types
     if (block.class === 'Image') {
         blockItem.innerHTML = `<img src="${block.image.original.url}" alt="${block.title}">`;
     } 
@@ -108,7 +108,7 @@ let renderBlock = (block) => {
     } else if (isPresent) {
         presentContainer.appendChild(blockItem);
     } else {
-        defaultContainer.appendChild(blockItem); // Show content with no labels in the grid
+        defaultContainer.appendChild(blockItem); 
     }
 };
 
@@ -180,7 +180,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-//hover zones
+//hover zones: I wanted to assign hover zones in my intro page and then have a custom svg appear on that zone specifically. the hero image (the image in the middle) was also changing, so we are getting all those elements, using mouse enter function to detect and then injecting the required assets. I took a little help for this function online too, just to have the svg follow the cursor.
 
 document.addEventListener("DOMContentLoaded", function () {
     let heroSection = document.getElementById("hero");
@@ -296,7 +296,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-  //youtube thumbnail
+  //youtube thumbnail (tried this but it didnt work)
   document.addEventListener("click", function(event) {
     if (event.target.closest(".youtube-preview")) {
         let previewDiv = event.target.closest(".youtube-preview");

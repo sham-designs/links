@@ -5,7 +5,8 @@
 body {
     margin: 0;
     font-family: 'Instrument Serif', serif;
-    background-color: #252B15;
+    /* background-color: #252B15; */
+    background-color: black;
     text-align: center;
     color: white;
     background-image: url('assets/noise-texture.png');
@@ -28,6 +29,7 @@ header {
     text-transform: uppercase;
     letter-spacing: -0.5px;
     border-bottom: 1px solid white;
+    background: black;
 }
 
 .header-left, .header-center, .header-right {
@@ -158,9 +160,9 @@ header {
 
 
 h1 {
-    font-size: 11rem;
+    font-size: 9rem;
     font-weight: lighter;
-    letter-spacing: -15px;
+    letter-spacing: -12px;
     line-height: 1.05;
     position: relative;
     margin: 0;
@@ -170,7 +172,7 @@ h1 {
 .hero-content{
     z-index: 4;
     position: absolute;
-    top: 90%;
+    top: 80%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -178,9 +180,9 @@ h1 {
 
 
 .hero-content h2 {
-    font-size: 5rem;
+    font-size: 3rem;
     font-weight: lighter;
-    letter-spacing: -6px;
+    letter-spacing: -3px;
     margin: 0;
 }
 
@@ -718,12 +720,13 @@ body {
     overflow: hidden; 
 }
 
-
 #custom-cursor {
-    max-width: 50px; 
-    max-height: 50px; 
-    overflow-x: hidden;
-} 
+    width: auto;
+    height: auto;
+    max-width: unset;
+    max-height: unset;
+    overflow: visible;
+}
 
 
 html,body {

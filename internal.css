@@ -125,6 +125,51 @@ body.dark-background {
 
 
 
+/* custom cover styling */
+
+.custom-cover {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.custom-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+}
+
+.custom-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.custom-icon {
+    width: 24px;  /* Adjust icon size */
+    height: 24px;
+    margin-right: 8px;
+}
+
+.custom-text {
+    font-family: 'Your Preferred Font', sans-serif;
+    text-transform: uppercase;
+}
+
+
+
+
+
 
 /* ======== "HEAR IT" BUTTON ======== */
 .audio-toggle {

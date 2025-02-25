@@ -13,6 +13,11 @@ fetch(`https://api.are.na/v2/channels/amazon-forest?per=100`, { cache: 'no-store
                 let blockItem = document.createElement("div");
                 blockItem.classList.add("block-item");
 
+
+                let titleElement = document.createElement("div");
+                         titleElement.classList.add("block-title");
+                         titleElement.innerText = block.title || "Untitled"; 
+
                 if (block.class === 'Image') {
                     blockItem.innerHTML = `<img src="${block.image.original.url}" alt="${block.title}">`;
                 } else if (block.class === 'Text') {
@@ -22,26 +27,51 @@ fetch(`https://api.are.na/v2/channels/amazon-forest?per=100`, { cache: 'no-store
                 } else if (block.class === 'Attachment' && block.attachment?.content_type.includes('audio')) {
                     blockItem.innerHTML = `<audio controls src="${block.attachment.url}"></audio>`;
                 } 
-                else if (block.class === 'Link') { //  Links
-                    blockItem.innerHTML = `<a href="${block.source.url}" target="_blank">${block.title || 'Open Link'}</a>`;
-                } 
 
-                else if (block.class === 'Media' && block.source?.url.includes("youtube.com")) {
-                    let videoId = block.source.url.split("v=")[1]?.split("&")[0]; // Extract YouTube video ID
-                    let thumbnailUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`; // Get Thumbnail
-                    
-                    blockItem.innerHTML = `
-                        <div class="youtube-preview" data-video="${block.source.url.replace("watch?v=", "embed/")}">
-                            <img src="${thumbnailUrl}" alt="YouTube Video" class="youtube-thumbnail">
-                            <button class="play-button">▶ Play</button>
-                        </div>
-                    `;
-                }
+
+
                 
-                else if (block.class === 'Media') { // 
-                    blockItem.innerHTML = `<a href="${block.source.url}" target="_blank">${block.title || 'Open Media'}</a>`;
-                }
-                
+//add cover images for links
+
+else if ((block.class === 'Media' || block.class === 'Link' || block.class === 'Attachment') &&
+    (block.source?.url || (block.attachment && block.attachment.content_type.includes("pdf")))) {
+
+    let isYouTube = block.source?.url?.includes("youtube") || block.source?.url?.includes("youtu.be");
+    let isPDF = block.attachment && block.attachment.content_type.includes("pdf");
+    let isRegularLink = block.class === 'Link' && !isYouTube;
+
+    let icon = isYouTube ? "assets/YoutubeLogo.png" : "assets/ReadLogo.png";
+    let coverImage = block.image?.filename  
+        ? `https://d2w9rnfcy7mm78.cloudfront.net/${block.image.filename}`  
+        : "assets/custom-cover.png";  
+    let linkUrl = isPDF ? block.attachment.url : block.source?.url;  
+
+    console.log("🔗 Processing:", block.source?.url || block.attachment?.url); 
+
+    blockItem.innerHTML = `
+        <div class="custom-cover" style="background-image: url('${coverImage}');">
+            <a href="${linkUrl}" target="_blank" class="custom-link">
+                <img src="${icon}" alt="Icon" class="custom-icon">
+                <span class="custom-text">Know more</span>
+            </a>
+        </div>
+    `;
+
+    if (isPDF) {
+        let pdfEmbed = document.createElement("embed");
+        pdfEmbed.src = block.attachment.url;
+        pdfEmbed.type = "application/pdf";
+        pdfEmbed.width = "100%";
+        pdfEmbed.height = "500px";
+        blockItem.appendChild(pdfEmbed);
+    }
+}
+
+
+
+
+
+                blockItem.appendChild(titleElement);
 
                 pastContainer.appendChild(blockItem);
             }

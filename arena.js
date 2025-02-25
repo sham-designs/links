@@ -82,29 +82,27 @@ let renderBlock = (block) => {
 
 
 
-    else if (block.class === 'Media' && block.source?.url.includes("youtube.com")) {
-        let videoId = block.source.url.split("v=")[1]?.split("&")[0]; // Extract YouTube video ID
-        let thumbnailUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`; // Get Thumbnail
-        
+    else if ((block.class === 'Media' || block.class === 'Link') && block.source?.url.includes("youtube") || block.source?.url.includes("youtu.be")) {
+        blockItem.innerHTML = `<a href="${block.source.url}" target="_blank">${block.title || 'Watch Video'}</a>`;
+    }
+    
+    
+    
+    else if (block.class === 'Attachment' && block.attachment.content_type.includes('pdf')) {
         blockItem.innerHTML = `
-            <div class="youtube-preview" data-video="${block.source.url.replace("watch?v=", "embed/")}">
-                <img src="${thumbnailUrl}" alt="YouTube Video" class="youtube-thumbnail">
-                <button class="play-button">▶ Play</button>
-            </div>
+            <a href="${block.attachment.url}" target="_blank">
+                <embed src="${block.attachment.url}" type="application/pdf" width="100%" height="500px">
+            </a>
         `;
     }
+    
+    
 
-    else if (block.class === 'Media') { // youtube link fix?
-        blockItem.innerHTML = `<a href="${block.source.url}" target="_blank">${block.title || 'Open Media'}</a>`;
-    }
-    
-    
 
     blockItem.appendChild(titleElement);
 
-
     
-    // Append the block to the correct section or default grid
+    
     if (isPast) {
         pastContainer.appendChild(blockItem);
     } else if (isPresent) {

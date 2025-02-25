@@ -28,7 +28,7 @@
                         }
 
                         blockItem.appendChild(titleElement);
-                        
+
                         pastContainer.appendChild(blockItem);
                     }
                 });
@@ -37,16 +37,7 @@
 
 
 
-            //function to fade and out the images smoothly
-            // document.addEventListener("scroll", function () {
-            //     let blocks = document.querySelectorAll(".block-item");
-            //     blocks.forEach(block => {
-            //         let rect = block.getBoundingClientRect();
-            //         if (rect.top < window.innerHeight * 0.9) { 
-            //             block.classList.add("visible");
-            //         }
-            //     });
-            // });
+            
             
 
 

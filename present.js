@@ -43,7 +43,7 @@ else if ((block.class === 'Media' || block.class === 'Link' || block.class === '
     let icon = isYouTube ? "assets/YoutubeLogo.png" : "assets/ReadLogo.png";
     let coverImage = block.image?.filename  
         ? `https://d2w9rnfcy7mm78.cloudfront.net/${block.image.filename}`  
-        : "assets/custom-cover.png";  
+        : "./assets/custom-cover.png";  
     let linkUrl = isPDF ? block.attachment.url : block.source?.url;  
 
     console.log("🔗 Processing:", block.source?.url || block.attachment?.url); 
@@ -66,8 +66,6 @@ else if ((block.class === 'Media' || block.class === 'Link' || block.class === '
         blockItem.appendChild(pdfEmbed);
     }
 }
-
-
 
 
 

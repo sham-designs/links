@@ -156,14 +156,16 @@ body.dark-background {
 }
 
 .custom-icon {
-    width: 24px;  /* Adjust icon size */
+    width: 24px;  
     height: 24px;
     margin-right: 8px;
 }
 
 .custom-text {
-    font-family: 'Your Preferred Font', sans-serif;
-    text-transform: uppercase;
+    font-family: 'Instrument Serif', serif;
+    font-weight: 100;
+    font-size: 40px;
+    letter-spacing: -2px;
 }
 
 
@@ -171,12 +173,12 @@ body.dark-background {
 
 
 
-/* ======== "HEAR IT" BUTTON ======== */
+/* hear it button */
 .audio-toggle {
-    position: relative; /* Keep it in the flow, no absolute */
+    position: relative; 
     display: inline-flex;
     align-items: center;
-    gap: 5px; /* Space between icon and text */
+    gap: 5px; 
     background: none;
     border: none;
 }
@@ -189,7 +191,7 @@ body.dark-background {
     text-decoration: underline;
     display: flex;
     align-items: center;
-    gap: 5px; /* Keeps icon and text neatly spaced */
+    gap: 5px; 
     color: gray;
 }
 
@@ -198,9 +200,9 @@ body.dark-background {
 }
 
 .audio-icon {
-    width: 100px; /* Adjusted to be smaller */
+    width: 100px; 
     height: 100px;
-    margin-right: 5px; /* Ensures proper spacing */
+    margin-right: 5px; 
     display: inline-block;
     vertical-align: middle;
 }
@@ -279,23 +281,26 @@ body.dark-background {
 .block-title {
     display: none; /* Hide the title initially */
     position: absolute;
-    bottom: 10px;
+    top:5%;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.1);
     color: white;
     padding: 5px 10px;
-    font-size: 14px;
+    font-family: 'Instrument Serif', serif;;
+    font-weight: 100;
+    font-size: 40px;
+    letter-spacing: -1px;
     border-radius: 5px;
     white-space: nowrap;
 }
 
 .block-item {
-    position: relative; /* Make sure the title is positioned relative to the block */
+    position: relative; 
 }
 
 .block-item:hover .block-title {
-    display: block; /* Show title on hover */
+    display: block; 
 }
 
 
@@ -359,7 +364,6 @@ body.dark-background {
     .navigation-past{
         margin-top: 20px;
     }
-
 
 
 

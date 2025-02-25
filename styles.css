@@ -264,6 +264,14 @@ p {
 }
 
 
+/* not show cursor in the middle */
+.hover-middle:hover + #past-btn,
+.hover-middle:hover + #present-btn {
+    opacity: 0 !important;
+}
+
+
+
 
 /* Transparent overlay for color tint */
 .hero-tint {

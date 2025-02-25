@@ -5,7 +5,6 @@ body {
     margin: 0;
     font-family: 'Instrument Serif', serif;
     /* background-color: #181c0d; */
-    /* background-color: yellow; */
     text-align: center;
     color: white;
     /* background-image: url('assets/noise-texture.png'); */
@@ -28,8 +27,8 @@ body {
 .page-container {
     display: flex;
     flex-direction: row;
-    height: 100vh; /* Full viewport height */
-    align-items: center; /* Centers everything vertically */
+    height: 100vh;
+    align-items: center; 
 }
 
 
@@ -46,8 +45,8 @@ body {
 .past-header h1 {
     font-family: 'Instrument Serif', serif;
     font-weight: 100;
-    font-size: 150px;
-    letter-spacing: -20px;
+    font-size: 100px;
+    letter-spacing: -10px;
     margin: 0;
 }
 
@@ -55,6 +54,7 @@ body {
     font-size: 24px;
     font-family: 'Inter', sans-serif;
     text-transform: uppercase;
+    letter-spacing: -1px;
     font-weight: 300;
     opacity: 0.8;
     margin: 5px 0;
@@ -68,25 +68,25 @@ body {
 
 
 
-/* ======== HORIZONTAL SCROLLING ======== */
+/*horizontal scrolling */
 #past-content {
-    display: flex; /* Enables horizontal layout */
-    overflow-x: auto; /* Allows scrolling */
-    white-space: nowrap; /* Prevents wrapping */
-    scroll-snap-type: x mandatory; /* Smooth scrolling effect */
-    gap: 20px; /* Adds space between items */
+    display: flex; 
+    overflow-x: auto; 
+    white-space: nowrap; 
+    scroll-snap-type: x mandatory; 
+    gap: 20px;
     padding: 20px;
 }
 
 
 
 
-/* ======== CONTENT BLOCKS ======== */
+/* content blocks */
 .block-item {
-    flex: 0 0 auto; /* Prevents blocks from shrinking */
-    width: 70vw; /* Each item takes x% of viewport width */
-    height: 90vh; /* Adjust height */
-    scroll-snap-align: start; /* Snaps elements into view */
+    flex: 0 0 auto; 
+    width: 70vw;
+    height: 90vh;
+    scroll-snap-align: start; 
     background-size: cover;
     background-position: center;
     display: flex;
@@ -279,21 +279,59 @@ body.dark-background {
 
 /* show title on hover only */
 .block-title {
-    display: none; /* Hide the title initially */
+    display: none; 
     position: absolute;
-    top:5%;
+    top:4%;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.1);
+    transition: opacity 1.9s ease-in-out;
+    /* background: rgba(0, 0, 0, 0.6); */
     color: white;
     padding: 5px 10px;
-    font-family: 'Instrument Serif', serif;;
-    font-weight: 100;
-    font-size: 40px;
-    letter-spacing: -1px;
-    border-radius: 5px;
+    font-family: 'Instrument Serif', serif;
+    /* text-transform: capitalize; */
+    /* font-weight: 100; */
+    font-weight: lighter;
+    font-size: 32px;
+    letter-spacing: -2px;
+    border-radius: 0px;
     white-space: nowrap;
+    z-index: 3;
 }
+
+
+
+
+
+
+.block-item {
+    position: relative;
+    overflow: hidden; 
+}
+
+.block-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0); 
+    transition: background 0.3s ease-in-out;
+    z-index: 1;
+}
+
+.block-item:hover::before {
+    background: rgba(0, 0, 0, 0.3); 
+}
+
+
+
+
+
+
+
+
 
 .block-item {
     position: relative; 
@@ -332,7 +370,7 @@ body.dark-background {
 
 
 /* mobile media queries for internal pages */
-@media (min-width: 360px) and (max-width: 650px) {
+@media (min-width: 360px) and (max-width: 800px) {
 
 
     #past-content {
@@ -359,7 +397,7 @@ body.dark-background {
         padding: 0;
     }
 
-    
+
     .block-item {
         width: 100vw; /* Full width */
         height: auto; /* Auto height */
@@ -382,6 +420,7 @@ body.dark-background {
     }
 
     .past-header {
+        position: sticky;
         flex: none; /* Remove fixed width */
         width: 100vw; /* Full width */
         height: auto; /* Auto height */
@@ -405,16 +444,43 @@ body.dark-background {
 
 
     .block-title {
+        top: 1%;
         display: block;
-        font-size: 14px; 
+        font-size: 24px; 
+        letter-spacing: 0px;
         text-align: center;
         margin-top: 5px;
+        /* background-color: black; */
+        opacity: 0.8;
     }
     
+    .block-item::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5); /* Adjust transparency as needed */
+        z-index: 1; /* Ensures it sits on top */
+      }
+      
+      .past-header {
+        /* position: relative;  */
+        z-index: 2; /* Higher than the overlay */
+      }
+
+
+
 
     #scroll-arrow{
     display: none;
    }
 
+
+   .audio-icon{
+    width: 40px;
+    height: 40px;
+   }
 
 }

@@ -406,6 +406,27 @@ html,body {
 
 
 
+.hero-background.fire-image {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.5s ease-in-out;
+}
+
+
+#present:hover .hero-background.fire-image {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+
+
 
 
 /* MOBILE media queries */
@@ -416,6 +437,11 @@ html,body {
         flex-direction: column; 
         text-align: center;
       }
+
+
+      .hover-left, .hover-middle, .hover-right {
+        display: none;
+    }
     
       h1 {
         font-size: calc(var(--base-font)*4);
@@ -438,6 +464,40 @@ html,body {
       #custom-cursor {
         display: none; 
       }
+
+
+
+      .mobile-nav {
+        display: flex;
+        justify-content: space-between;  
+        align-items: center;
+        position: fixed;
+        top: 60%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        z-index: 100;
+    }
+
+    .mobile-btn {
+        display: flex;
+        align-items: center;
+        gap: 10px;  
+        padding: 10px 20px;
+        font-size: 18px;
+        font-family: var(--base-font);
+        text-decoration: none;
+        color: white; 
+        background: rgba(0, 0, 0, 0.8);
+        border-radius: 50px;
+        transition: 0.3s;
+    }
+
+    .mobile-btn img {
+        width: 30px; 
+        height: auto;
+    }
+
 
 }
 
@@ -480,6 +540,10 @@ html,body {
         letter-spacing: var(--base-letter-space);
       }
 
+
+      .mobile-nav {
+        display: none;
+    }
       
 }
 
@@ -512,7 +576,9 @@ html,body {
         letter-spacing: var(--base-letter-space);
       }
 
-     
+      .mobile-nav {
+        display: none;
+    }
 
 }
 
@@ -547,6 +613,9 @@ html,body {
       }
 
      
+      .mobile-nav {
+        display: none;
+    }
 
 }
 

@@ -1,12 +1,31 @@
 /* Import Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap');
 
+:root {
+    --primary-bg: black;
+    --text-color: white;
+    --accent-color: #252B15;
+    --hover-accent: #3a5a40;
+    --font-main: 'Instrument Serif', serif;
+    --font-alt: 'Inter', sans-serif;
+    --hero-max-width: 60vw;
+    --hero-max-height: 80vh;
+    --base-font:14px;
+    --base-letter-space:-1px;
+    --cursor-size: 40px;
+    --base-margin:8px;
+}
+
+
+
+
+
+
+
 /* General Styles */
 body {
     margin: 0;
-    font-family: 'Instrument Serif', serif;
-    /* background-color: #252B15; */
-    background-color: black;
+    font-family: var(--font-main);
     text-align: center;
     color: white;
     background-image: url('assets/noise-texture.png');
@@ -62,14 +81,12 @@ header {
     transition: background 1.8s ease-in-out; /* Smooth transition */
 }
 
-/* 🔥 When hovering right, switch to the fire GIF */
+/*  When hovering right, switch to the fire GIF */
 #hero.hero-present {
     background: url('assets/forestfire.gif'); /* 🔥 Fire GIF */
     background-size: cover;
     background-position: center;
 }
-
-
 
 
 
@@ -83,12 +100,13 @@ header {
 }
 
 .hero-background {
-    width: 60vw; /* Adjust the size */
-    max-width: 600px; /* Limit the max size */
+    width: 70vw; 
+    height: auto;
+    max-width: 600px;
     position: absolute;
-    top: 50%; /* Center vertically */
+    top: 50%; 
     left: 50%;
-    transform: translate(-50%, -50%); /* Ensure centering */
+    transform: translate(-50%, -50%); 
     z-index: 1;
     opacity: 0.8;
 }
@@ -126,7 +144,7 @@ header {
     top: 0;
     height: 100%;
     cursor: pointer;
-    opacity: 0; /* Invisible but functional */
+    opacity: 0; 
     z-index: 3;
 }
 
@@ -146,9 +164,9 @@ header {
 }
 
 
-
-
-
+h1{
+    font-weight: lighter;
+}
 
 #hero h1{
     position: absolute;
@@ -156,18 +174,12 @@ header {
     left: 50%;
     transform: translateX(-50%);
     z-index: 3;
-}
-
-
-h1 {
-    font-size: 9rem;
-    font-weight: lighter;
-    letter-spacing: -12px;
-    line-height: 1.05;
-    position: relative;
     margin: 0;
-   
 }
+
+
+
+
 
 .hero-content{
     z-index: 4;
@@ -180,10 +192,9 @@ h1 {
 
 
 .hero-content h2 {
-    font-size: 3rem;
     font-weight: lighter;
-    letter-spacing: -3px;
     margin: 0;
+    margin-bottom: var(--base-margin);
 }
 
 .hero-content h3 {
@@ -191,7 +202,7 @@ h1 {
     font-family: 'Inter', sans-serif;
     font-weight: 100;
     text-transform: uppercase;
-    letter-spacing: -0.5px;
+    /* letter-spacing: -0.5px; */
     opacity: 0.7;
     margin: 0;
 }
@@ -213,247 +224,16 @@ h1 {
 }
 
 
-
-
-
-
+/* Use it for channel desc in other html */
 p {
     font-size: 1.2rem;
     font-style: italic;
     position: relative;
 }
 
-/* Split Screen Layout */
-
-.split-container {
-    display: flex;
-    width: 100vw;
-    height: 100vh;
-}
 
 
-
-/* Make sure the parent container is also constrained */
-.container {
-    display: flex;
-    height: 100vh; /* Force the split to respect viewport */
-}
-
-
-#past {
-    width: 50vw;
-    position: fixed;
-    left: 0;
-}
-
-#present {
-    width: 50vw;
-    position: fixed;
-    right: 0;
-}
-
-
-
-.section-header {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 30px;
-}
-
-
-#past .section-header, #present .section-header {
-    text-align: center;
-}
-
-
-#past, #present {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    height: 100vh;
-    transition: filter 0.5s ease-in-out;
-    /* overflow: hidden; */
-    height: 100vh; /* Ensure full screen height */
-    width: 50vw;
-    overflow-y: auto; /* Enable scrolling */
-    scroll-behavior: smooth;
-    padding: 40px 20px; 
-
-    text-align: center;
-
-}
-
-
-#past h2, #present h2{
-    font-size: 5rem;
-    font-weight: lighter;
-    font-weight: 100;
-    letter-spacing: -15px;
-    line-height: 1.05;
-}
-
-
-#past p, #present p {
-    font-size: 2rem;
-    opacity: 0.8;
-    margin-bottom: 15px;
-}
-
-
-.play-audio {
-    margin-top: 10px;
-}
-
-
-/* Hide scrollbar */
-/* #past::-webkit-scrollbar, #present::-webkit-scrollbar {
-    display: none; 
-} */
-
-/* #past, #present {
-    -ms-overflow-style: none;  
-    scrollbar-width: none;  
-} */
-
-
-
-
-/* Past Section */
-#past {
-    background: radial-gradient(circle at 50% 50%, rgba(72, 145, 75, 0.8) 20%, rgba(24, 61, 27, 0.6) 50%, rgba(10, 27, 10, 0.4) 80%, rgba(0, 0, 0, 0) 100%);
-    backdrop-filter: blur(10px);
-}
-
-/* Present Section */
-#present {
-    background: radial-gradient(circle at center, rgba(215, 153, 91, 0.8) 20%, rgba(122, 79, 39, 0.6) 50%, rgba(30, 14, 6, 0.4) 80%, rgba(0, 0, 0, 0) 100%);
-    backdrop-filter: blur(10px);
-} 
-
-.past-section, .present-section {
-    position: relative;
-    width: 50vw;
-    height: 100vh;
-    background: radial-gradient(circle, rgba(34, 139, 34, 0.8) 20%, rgba(34, 139, 34, 0) 80%);
-    filter: blur(10px);
-}
-.present-section {
-    background: radial-gradient(circle, rgba(139, 69, 19, 0.8) 20%, rgba(139, 69, 19, 0) 80%);
-}
-
-
-
-#past:hover, #present:hover {
-    filter: brightness(1.2);
-}
-
-
-
-
-/* Content Blocks - Placement and Styling */
-
-#channel-blocks {
-    position: relative;
-    margin-top: 50px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0px;
-}
-
-
-
-.block-item {
-    width: 200px; /* Set a fixed width */
-    height: 200px; /* Set a fixed height */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: url('assets/noise-texture.png'); /* Apply noise background */
-    background-size: cover;
-    /* border-radius: 10000px;  */
-    border-radius: 1%;
-    overflow: hidden; /* Ensures no overflow */
-}
-
-
-
-/* Grid Layout */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 0px;
-    justify-content: center;
-    padding: 40px 20px;
-}
-
-
-
-/* Ensure Images & Videos Fit Properly */
-.block-item img,
-.block-item video,
-.block-item audio {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensures full coverage */
-    border-radius: 1px;
-}
-
-/* Apply Consistent Styling for Different Block Types */
-.block-item p {
-    font-size: 1rem;
-    text-align: center;
-    padding: 10px;
-    color: white; /* Ensure text is visible */
-}
-
-/* Make Grid Layout Responsive */
-#past, #present {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0px; /* Space between items */
-    justify-content: center;
-    padding: 20px;
-}
-
-
-
-
-
-
-
-/* Play Button beneath section titles */
-.play-audio {
-    margin-top: 20px;
-    padding: 18px;
-    font-size: 1.8rem;
-    border: none;
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-    cursor: pointer;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: background 0.3s;
-}
-
-.play-audio:hover {
-    background: rgba(255, 255, 255, 0.2);
-}
-
-
-
-/* -----NEW HOVER THING------ */
 /* trying out the hover on intro fold */
-
 
 /* Hover Areas - Invisible Divs Covering Left & Right */
 .hover-left, .hover-right {
@@ -475,34 +255,6 @@ p {
 }
 
 
-/* Background Transition for Hover */
-/* #hero.hero-past {
-    background: radial-gradient(circle, rgba(72, 145, 75, 0.8) 20%, rgba(24, 61, 27, 0.6) 50%, rgba(10, 27, 10, 0.4) 80%, black);
-    transition: background 0.5s ease-in-out;
-}
-
-#hero.hero-present {
-    background: radial-gradient(circle, rgba(215, 153, 91, 0.8) 20%, rgba(122, 79, 39, 0.6) 50%, rgba(30, 14, 6, 0.4) 80%, black);
-    transition: background 0.5s ease-in-out;
-} */
-
-
-/* Explore Buttons - Initially Hidden */
-/* .explore-btn {
-    position: absolute;
-    top: 80%;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 12px 24px;
-    background: rgba(255, 255, 255, 0.85);
-    border: none;
-    font-size: 1.2rem;
-    font-family: 'Inter', sans-serif;
-    cursor: pointer;
-    border-radius: 5px;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-} */
 
 /* Button Visibility on Hover */
 .hero-past #past-btn,
@@ -524,17 +276,6 @@ p {
     transition: background 0.5s ease-in-out;
     z-index: 2; /* Sits on top of the background image but behind text */
 }
-
-/* Tint changes on hover */
-/* #hero.hero-past .hero-tint {
-    background: radial-gradient(circle, rgba(34, 139, 34, 0.25) 20%, rgba(0, 0, 0, 0.2) 80%);
-    opacity: 0.9;
-}
-
-#hero.hero-present .hero-tint {
-    background: radial-gradient(circle, rgba(255, 140, 0, 0.25) 20%, rgba(0, 0, 0, 0.2) 80%);
-} */
-
 
 
 
@@ -562,25 +303,6 @@ p {
 }
 
 
-
-/* Custom cursor */
-/* .hover-left {
-    cursor: url('assets/cursor-left.png'), auto; 
-}
-
-.hover-right {
-    cursor: url('assets/cursor-right.png'), auto;
-} */
-
-
-
-/* .hover-left {
-    cursor: w-resize; 
-}
-
-.hover-right {
-    cursor: e-resize; 
-} */
 
 
 
@@ -630,7 +352,7 @@ body {
 
 
 
-/* Floating Buttons (Following Cursor) */
+
 /* Floating Buttons (Following Cursor) */
 .floating-btn {
     position: absolute;
@@ -648,23 +370,6 @@ body {
 }
 
 
-
-
-/* .explore-btn {
-    position: fixed;
-    opacity: 0; 
-    transition: opacity 0.3s ease-in-out, transform 0.2s ease-out;
-    font-size: 16px; 
-    font-family: 'Instrument Serif', serif;
-    background: none;
-    color: white;
-    border: none;
-    cursor: pointer;
-    pointer-events: none;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-} */
-
 /* Adjusting position to be slightly below the cursor */
 #past-btn {
     transform: translate(-10px, 40px); /* Moves slightly below */
@@ -676,42 +381,6 @@ body {
 
 
 
-
-/* fixing cursor height */
-
-/* #custom-cursor {
-    position: fixed;
-    left: 50%;
-    transform: translateX(-50%);
-    max-width: 100vw;
-    overflow: hidden;
-    pointer-events: none; 
-}
-
-#custom-cursor {
-    max-width: 50px; 
-    max-height: 50px; 
-    overflow: visible;
-} */
-
-/* #custom-cursor {
-    max-width: 50px; 
-    max-height: 50px;
-    position: fixed;
-    left: 0; 
-    top: 0;
-    pointer-events: none; 
-    overflow: hidden;
-    transform: translate(-50%, -50%); 
-} */
-
-
-
-/* 
-#hero {
-    max-width: 100%;
-    overflow: hidden;
-} */
 
 #hero {
     width: 100vw;
@@ -739,18 +408,33 @@ html,body {
 
 
 
-/* MOBILE LAST SORRY */
+/* MOBILE media queries */
 
-@media (max-width: 768px) {
+@media (min-width: 360px) and (max-width: 650px) {
+
     .hero-container {
-        flex-direction: column; /* Stack elements */
+        flex-direction: column; 
         text-align: center;
       }
     
       h1 {
-        font-size: 2rem;
+        font-size: calc(var(--base-font)*4);
+        letter-spacing: calc(var(--base-letter-space)*2);
+        line-height: 80%;
+      }
+
+      .hero-content h2{
+        font-size: calc(var(--base-font)*2);
+        letter-spacing: calc(var(--base-letter-space)*0.5);
+        line-height: 90%;
       }
     
+
+      .hero-content h3{
+        font-size: calc(var(--base-font)*1);
+        letter-spacing: var(--base-letter-space);
+      }
+
       #custom-cursor {
         display: none; 
       }
@@ -758,6 +442,79 @@ html,body {
 }
 
 
+/* DESKTOP-ish larger screens media queries */
+
+@media (min-width: 650px) and (max-width: 900px) {
+
+    .hero-container {
+        flex-direction: column; 
+        text-align: center;
+      }
+    
+
+      .hero-background{
+        width: 50vw;
+        height: 70vh;
+      }
+
+      h1 {
+        font-size: calc(var(--base-font)*4);
+        letter-spacing: calc(var(--base-letter-space)*2);
+        line-height: 80%;
+      }
+
+      .hero-content h2{
+        font-size: calc(var(--base-font)*2);
+        letter-spacing: calc(var(--base-letter-space)*0.5);
+      
+      }
+    
+
+      .hero-content h3{
+        font-size: calc(var(--base-font)*1);
+        letter-spacing: var(--base-letter-space);
+      }
+
+      #custom-cursor {
+        display: none; 
+      }
+
+}
+
+/* Screens larger than 900 so DESKTOP DESKTOP */
+@media (min-width: 900px) and (max-width: 1400px) {
+
+    .hero-container {
+        flex-direction: column; 
+        text-align: center;
+      }
+    
+      h1 {
+        top: 5%;
+        font-size: calc(var(--base-font)*9);
+        letter-spacing: calc(var(--base-letter-space)*2);
+        line-height: 80%;
+        display: inline-block;
+        width: auto;
+      }
+
+      .hero-content h2{
+        font-size: calc(var(--base-font)*4);
+        letter-spacing: calc(var(--base-letter-space)*0.5);
+        line-height: 90%;
+      }
+    
+
+      .hero-content h3{
+        font-size: calc(var(--base-font)*2);
+        letter-spacing: var(--base-letter-space);
+      }
+
+      #custom-cursor {
+        display: none; 
+      }
+
+}
 
 
 

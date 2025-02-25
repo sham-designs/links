@@ -527,7 +527,7 @@ html,body {
     
       h1 {
         top: 5%;
-        font-size: calc(var(--base-font)*9);
+        font-size: calc(var(--base-font)*8);
         letter-spacing: calc(var(--base-letter-space)*2);
         line-height: 80%;
         display: inline-block;
@@ -542,14 +542,11 @@ html,body {
     
 
       .hero-content h3{
-        font-size: calc(var(--base-font)*2);
+        font-size: calc(var(--base-font)*1.5);
         letter-spacing: var(--base-letter-space);
       }
 
-      #custom-cursor {
-        display: none; 
-      }
-
+     
 
 }
 

@@ -348,7 +348,18 @@ body.dark-background {
         padding: 20px;
     }
 
+    #past-content,  
+    .block-item,  
+    .page-container {  
+        padding: 0 ;  
+        margin: 0 ;  
+    }
 
+    .past-header{
+        padding: 0;
+    }
+
+    
     .block-item {
         width: 100vw; /* Full width */
         height: auto; /* Auto height */

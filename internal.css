@@ -304,6 +304,33 @@ body.dark-background {
 }
 
 
+
+#scroll-arrow {
+    position: fixed;
+    right: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 80px;
+    height: auto;
+    opacity: 1;
+    transition: opacity 0.3s;
+    pointer-events: none; 
+    z-index: 10000;
+}
+
+/* Make it fade out when user scrolls */
+/* @media (hover: hover) {
+    body:hover #scroll-arrow {
+        opacity: 0;
+    }
+} */
+
+
+
+
+
+
+
 /* mobile media queries for internal pages */
 @media (min-width: 360px) and (max-width: 650px) {
 
@@ -366,7 +393,17 @@ body.dark-background {
     }
 
 
-
+    .block-title {
+        display: block;
+        font-size: 14px; 
+        text-align: center;
+        margin-top: 5px;
+    }
     
+
+    #scroll-arrow{
+    display: none;
+   }
+
 
 }

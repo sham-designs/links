@@ -26,21 +26,6 @@ let placeChannelInfo = (data) => {
 
 
 
-// Fetch the data from Are.na API
-// fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-store' })
-//     .then((response) => response.json())
-//     .then((data) => {
-//         console.log(data); // Always good to check your response!
-//         placeChannelInfo(data);
-        
-//         // Loop through the contents and render only relevant ones
-//         data.contents.reverse().forEach((block) => {
-//             renderBlock(block);
-//         });
-//     });
-
-
-
 
 
 
@@ -127,39 +112,8 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
         document.querySelector("#past").innerHTML += ""; // Preserve header, clear existing blocks
         document.querySelector("#present").innerHTML += "";
 
-        // Loop through and place blocks into the correct sections
-        // data.contents.reverse().forEach((block) => {
-        //     let pastContainer = document.querySelector('#past');
-        //     let presentContainer = document.querySelector('#present');
-
-        //     let title = block.title ? block.title.toLowerCase() : "";
-        //     let isPast = title.includes("[past]");
-        //     let isPresent = title.includes("[present]");
-
-        //     let blockItem = document.createElement("div");
-        //     blockItem.classList.add("block-item");
-
-        //     if (block.class === 'Image') {
-        //         blockItem.innerHTML = `<img src="${block.image.original.url}" alt="${block.title}">`;
-        //     } else if (block.class === 'Text') {
-        //         blockItem.innerHTML = `<p>${block.content}</p>`;
-        //     } else if (block.class === 'Attachment' && block.attachment.content_type.includes('video')) {
-        //         blockItem.innerHTML = `<video controls src="${block.attachment.url}"></video>`;
-        //     } else if (block.class === 'Attachment' && block.attachment.content_type.includes('audio')) {
-        //         blockItem.innerHTML = `<audio controls src="${block.attachment.url}"></audio>`;
-        //     }
-
-        //     if (isPast) {
-        //         pastContainer.appendChild(blockItem);
-        //     } else if (isPresent) {
-        //         presentContainer.appendChild(blockItem);
-        //     }
-        // });
-
-
-
         data.contents.reverse().forEach((block) => {
-            renderBlock(block); // ✅ Now every block goes through filtering & proper handling
+            renderBlock(block); //  Now every block goes through filtering & proper handling
         });
 
         // 🚀 Ensure content is hidden initially
@@ -271,7 +225,7 @@ document.addEventListener("DOMContentLoaded", function () {
         cursor.style.top = `${y}px`;
 
 
-        // Move floating buttons slightly below the cursor
+        // Floating buttons placement around cursor
         pastBtn.style.left = `${x}px`;
         pastBtn.style.top = `${y + 60}px`;
 
@@ -311,7 +265,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Attach event listeners
+    
     document.addEventListener("mousemove", updateCursorPosition);
     document.querySelector(".hover-left").addEventListener("mouseenter", showPast);
     document.querySelector(".hover-right").addEventListener("mouseenter", showPresent);
@@ -335,25 +289,3 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-//trying not to let custom cursor overflow
-// let cursor = document.getElementById("custom-cursor");
-
-// document.addEventListener("mousemove", function (e) {
-//     let x = Math.min(e.clientX, window.innerWidth - 50);
-//     let y = Math.min(e.clientY, window.innerHeight - 50);
-    
-//     cursor.style.left = `${x}px`;
-//     cursor.style.top = `${y}px`;
-// });
-
-
-
-
-
-//on mobile, hover -> tap
-if (window.innerWidth < 768) {
-    document.querySelector("#past-btn").addEventListener("click", () => {
-      console.log("🔥 Mobile tap detected!");
-    });
-  }
-  
